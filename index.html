@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="John Patrick Eugenio's developer portfolio and learning projects.">
+  <title>John Patrick | Developer Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="java.js" defer></script>
+</head>
+<body>
+  <!-- Loading screen -->
+  <div class="loader" id="loader">
+    <div class="loader-line"><span></span></div>
+    <p>Preparing your experience...</p>
+  </div>
+
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a href="#overview" class="brand">Portfolio<span>.</span></a>
+      <p class="side-label">WORKSPACE</p>
+
+      <nav class="navigation">
+        <a href="#timeline" class="nav-link">
+  <span>↗</span> Journey
+</a>
+        <a href="#terminal" class="nav-link"><span>⌘</span> Terminal</a>
+        <a href="#overview" class="nav-link active"><span>⌂</span> Overview</a>
+        <a href="#about" class="nav-link"><span>◉</span> About Me</a>
+        <a href="#skills" class="nav-link"><span>▤</span> Skills</a>
+        <a href="#goals" class="nav-link"><span>↗</span> Goals</a>
+        <a href="#projects" class="nav-link"><span>▣</span> Projects</a>
+        <a href="#contact" class="nav-link"><span>✉</span> Contact</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div>
+        <div>
+          <strong>Learning in progress</strong>
+          <small>Building one project at a time.</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <!-- Top navigation -->
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        <span class="breadcrumb">Portfolio <span>/</span> Dashboard</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">
+          <span id="themeIcon">☀</span>
+          <span id="themeText">Light mode</span>
+        </button>
+      </header>
+
+      <!-- Overview -->
+      <section class="section overview" id="overview">
+        <div class="welcome reveal">
+          <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+<h1>
+    Hi, I'm
+    <span class="typing-name" id="typingName">John Patrick</span>
+    <span class="cursor">|</span>
+</h1>
+
+          <h2>BSIS Student <span class="muted">·</span> Aspiring Software Developer</h2>
+          <p class="intro">
+            I am learning to turn ideas into useful digital experiences.
+            This is where I document my skills, goals, and programming journey.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">Explore Projects ↗</a>
+            <a class="button secondary" href="#about">About Me</a>
+          </div>
+        </div>
+
+        <div class="profile-card reveal">
+          <div class="photo-frame">
+            <!-- Replace profile.jpg with your own photo file -->
+            <img src="IMG_20250316_130831_034.jpg" alt="John Patrick's profile photo"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="photo-placeholder">JP<span>.</span></div>
+          </div>
+          <div class="profile-caption">
+            <div>
+              <h3>John Patrick Eugenio</h3>
+              <p>BSIS 1A · ZPPSU</p>
+            </div>
+            <span class="profile-mark">JP</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats-grid reveal" aria-label="Portfolio overview">
+        <article class="stat-card">
+          <span class="stat-icon">⌘</span>
+          <p>Practice Projects</p>
+          <h3>05</h3>
+          <small>C++ learning exercises</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon">◈</span>
+          <p>Current Focus</p>
+          <h3>C++</h3>
+          <small>Logic and problem solving</small>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon">↗</span>
+          <p>Long-Term Goal</p>
+          <h3>Developer</h3>
+          <small>Build useful software</small>
+        </article>
+      </section>
+
+      <!-- About -->
+      <section class="section content-section reveal" id="about">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">GET TO KNOW ME</p>
+            <h2>About Me<span class="period">.</span></h2>
+          </div>
+          <span class="section-number">01 / ABOUT</span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy panel">
+            <h3>Learning today. Building tomorrow.</h3>
+            <p>
+              I am a first-year Bachelor of Science in Information Systems
+              student at Zamboanga Peninsula Polytechnic State University.
+            </p>
+            <p>
+              I am currently learning C++ programming and web development.
+              I enjoy solving problems, practicing new concepts, and improving
+              my skills through small projects.
+            </p>
+            <p>
+              My goal is to become a software developer and create technology
+              that can help people in their everyday lives.
+            </p>
+          </div>
+          <div class="details panel">
+            <h3>Personal Details</h3>
+            <div class="detail-row"><span>Name</span><strong>John Patrick Eugenio</strong></div>
+            <div class="detail-row"><span>Course</span><strong>BSIS 1A</strong></div>
+            <div class="detail-row"><span>University</span><strong>ZPPSU</strong></div>
+            <div class="detail-row"><span>Current language</span><strong>C++</strong></div>
+            <div class="detail-row"><span>Career goal</span><strong>Software Developer</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="section content-section reveal" id="skills">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">WHAT I'M LEARNING</p>
+            <h2>Skills & Learning<span class="period">.</span></h2>
+          </div>
+          <span class="section-number">02 / SKILLS</span>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card panel">
+            <div class="skill-title"><span>C++ Programming</span><span>Learning</span></div>
+            <p>Variables, conditions, loops, arrays, and functions.</p>
+            <div class="progress"><span style="width:45%"></span></div>
+          </article>
+          <article class="skill-card panel">
+            <div class="skill-title"><span>HTML</span><span>Learning</span></div>
+            <p>Structuring web pages and content.</p>
+            <div class="progress"><span style="width:25%"></span></div>
+          </article>
+          <article class="skill-card panel">
+            <div class="skill-title"><span>CSS</span><span>Learning</span></div>
+            <p>Layouts, colors, responsive design, and animation.</p>
+            <div class="progress"><span style="width:20%"></span></div>
+          </article>
+          <article class="skill-card panel">
+            <div class="skill-title"><span>JavaScript</span><span>Exploring</span></div>
+            <p>Learning to make websites interactive.</p>
+            <div class="progress"><span style="width:10%"></span></div>
+          </article>
+        </div>
+        <p class="note">Progress bars are editable estimates, not formal skill assessments.</p>
+      </section>
+
+      <!-- Goals -->
+      <section class="section content-section reveal" id="goals">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MY DIRECTION</p>
+            <h2>Goals & Roadmap<span class="period">.</span></h2>
+          </div>
+          <span class="section-number">03 / GOALS</span>
+        </div>
+
+        <div class="roadmap">
+          <article class="roadmap-item panel">
+            <span class="roadmap-dot">01</span>
+            <div><span class="tag">CURRENT</span><h3>Master the fundamentals</h3>
+              <p>Practice C++ logic, loops, arrays, functions, and problem solving.</p>
+            </div>
+          </article>
+          <article class="roadmap-item panel">
+            <span class="roadmap-dot">02</span>
+            <div><span class="tag">NEXT STEP</span><h3>Build real projects</h3>
+              <p>Learn object-oriented programming, HTML, CSS, and JavaScript.</p>
+            </div>
+          </article>
+          <article class="roadmap-item panel">
+            <span class="roadmap-dot">03</span>
+            <div><span class="tag">LONG TERM</span><h3>Become a software developer</h3>
+              <p>Create complete applications, develop a strong portfolio, and prepare for a career in technology.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="section content-section reveal" id="projects">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MY PRACTICE WORK</p>
+            <h2>C++ Projects<span class="period">.</span></h2>
+          </div>
+          <span class="section-number">04 / PROJECTS</span>
+        </div>
+        <p class="section-description">Small projects that help me practice programming logic and build confidence.</p>
+
+        <div class="projects-grid">
+          <button class="project-card panel" data-project="number" type="button">
+            <div class="project-top"><span class="project-icon">01</span><span>↗</span></div>
+            <h3>Number Analyzer</h3>
+            <p>Calculate a sum, find the largest number, and count even and odd values.</p>
+            <div class="tags"><span>C++</span><span>Arrays</span><span>Loops</span></div>
+          </button>
+
+          <button class="project-card panel" data-project="grades" type="button">
+            <div class="project-top"><span class="project-icon">02</span><span>↗</span></div>
+            <h3>Student Grade Analyzer</h3>
+            <p>Calculate the average, highest and lowest grades, and pass/fail results.</p>
+            <div class="tags"><span>C++</span><span>Conditions</span></div>
+          </button>
+
+          <button class="project-card panel" data-project="pro" type="button">
+            <div class="project-top"><span class="project-icon">03</span><span>↗</span></div>
+            <h3>Number Analyzer Pro</h3>
+            <p>Analyze ten numbers, calculate averages, and count numbers greater than 50.</p>
+            <div class="tags"><span>C++</span><span>Logic</span></div>
+          </button>
+
+          <button class="project-card panel" data-project="ranking" type="button">
+            <div class="project-top"><span class="project-icon">04</span><span>↗</span></div>
+            <h3>Student Grade Ranking</h3>
+            <p>Process eight grades, find the highest and lowest, and count passing students.</p>
+            <div class="tags"><span>C++</span><span>Arrays</span></div>
+          </button>
+
+          <button class="project-card panel" data-project="bank" type="button">
+            <div class="project-top"><span class="project-icon">05</span><span>↗</span></div>
+            <h3>Bank Account Program</h3>
+            <p>A learning exercise for checking a balance, depositing, and withdrawing money.</p>
+            <div class="tags"><span>C++</span><span>Functions</span></div>
+          </button>
+        </div>
+      </section>
+<!-- INTERACTIVE TERMINAL -->
+<section class="section content-section reveal" id="terminal">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">COMMAND LINE</p>
+      <h2>Developer Terminal<span class="period">.</span></h2>
+    </div>
+    <span class="section-number">05 / TERMINAL</span>
+  </div>
+
+  <p class="section-description">
+    Explore my portfolio by typing a command below.
+  </p>
+
+  <div class="terminal panel">
+    <div class="terminal-topbar">
+      <div class="terminal-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <span>jp@portfolio: ~</span>
+    </div>
+
+    <div class="terminal-body" id="terminalOutput" aria-live="polite">
+      <p>Welcome to my portfolio terminal!</p>
+      <p>Type <strong>help</strong> to see available commands.</p>
+    </div>
+
+    <form id="terminalForm" class="terminal-input-row">
+      <label for="terminalInput">visitor@portfolio:~$</label>
+      <input
+        id="terminalInput"
+        type="text"
+        placeholder="Type a command..."
+        autocomplete="off"
+        aria-label="Terminal command"
+        maxlength="100"
+      >
+      <button type="submit">Run</button>
+    </form>
+  </div>
+  <p class="note">Tip: Try <code>help</code>, <code>about</code>, <code>skills</code>, or <code>projects</code>.</p>
+</section>
+
+<!-- DEVELOPER JOURNEY TIMELINE -->
+<section class="section content-section reveal" id="timeline">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">MY PROGRESS</p>
+      <h2>Developer Journey<span class="period">.</span></h2>
+    </div>
+    <span class="section-number">06 / TIMELINE</span>
+  </div>
+
+  <p class="section-description">
+    Every small step is part of becoming a better developer.
+  </p>
+
+  <div class="journey-timeline">
+    <article class="journey-item panel">
+      <span class="journey-number">01</span>
+      <div>
+        <span class="tag">FOUNDATION</span>
+        <h3>Learn C++ Basics</h3>
+        <p>Practice variables, input and output, data types, and operators.</p>
+        <div class="tags"><span>C++</span><span>Fundamentals</span></div>
+      </div>
+    </article>
+
+    <article class="journey-item panel">
+      <span class="journey-number">02</span>
+      <div>
+        <span class="tag">BUILDING LOGIC</span>
+        <h3>Conditions, Loops & Arrays</h3>
+        <p>Learn to solve problems, process numbers, and analyze student grades.</p>
+        <div class="tags"><span>Conditions</span><span>Loops</span><span>Arrays</span></div>
+      </div>
+    </article>
+
+    <article class="journey-item panel">
+      <span class="journey-number">03</span>
+      <div>
+        <span class="tag">CURRENT PROJECTS</span>
+        <h3>Build Interactive Projects</h3>
+        <p>Create practice programs and improve this portfolio using HTML, CSS, and JavaScript.</p>
+        <div class="tags"><span>Problem Solving</span><span>Web Development</span></div>
+      </div>
+    </article>
+
+    <article class="journey-item panel">
+      <span class="journey-number">04</span>
+      <div>
+        <span class="tag">FUTURE GOAL</span>
+        <h3>Become a Software Developer</h3>
+        <p>Continue learning object-oriented programming and build complete applications.</p>
+        <div class="tags"><span>OOP</span><span>Applications</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+      <!-- Contact -->
+      
+<!-- Contact -->
+<section class="section content-section reveal" id="contact">
+  <div class="contact-panel panel">
+    <p class="eyebrow">LET'S CONNECT</p>
+    <h2>Every expert was once a beginner<span class="period">.</span></h2>
+    <p>
+      I'm learning, building, and working toward becoming
+      a software developer. Send me a message below!
+    </p>
+
+    <form id="contactForm" class="contact-form">
+      <label for="contactName">Your Name</label>
+      <input
+        type="text"
+        id="contactName"
+        name="name"
+        placeholder="Enter your name"
+        maxlength="100"
+        required
+      >
+
+      <label for="contactEmail">Your Email</label>
+      <input
+        type="email"
+        id="contactEmail"
+        name="email"
+        placeholder="Enter your email"
+        maxlength="254"
+        required
+      >
+
+      <label for="contactMessage">Your Message</label>
+      <textarea
+        id="contactMessage"
+        name="message"
+        placeholder="Write your message..."
+        maxlength="5000"
+        rows="5"
+        required
+      ></textarea>
+
+      <button class="button primary" type="submit" id="sendButton">
+        Send Message
+      </button>
+
+      <p id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+
+    <a
+      class="button secondary"
+      href="https://github.com/jpatrickeugenio"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Visit My GitHub ↗
+    </a>
+  </div>
+</section>
+
+
+      <footer class="footer">
+        <span>© <span id="year"></span> John Patrick Eugenio</span>
+        <span>Designed with purpose. Built while learning.</span>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Project details modal -->
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close project details">×</button>
+      <p class="eyebrow">PROJECT DETAILS</p>
+      <h2 id="modalTitle">Project name</h2>
+      <p id="modalDescription"></p>
+      <div class="tags" id="modalTags"></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,31 +1,48 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="John Patrick Eugenio's developer portfolio and learning projects.">
   <title>John Patrick | Developer Portfolio</title>
+ 
+  <!-- Fonts for the welcome loader and the ID lanyard -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=DM+Sans:wght@500&family=Great+Vibes&display=swap" rel="stylesheet">
+ 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="loader.css">
+  <link rel="stylesheet" href="lanyard.css">
   <script src="java.js" defer></script>
+  <script src="lanyard.js" defer></script>
 </head>
 <body>
   <!-- Loading screen -->
-  <div class="loader" id="loader">
-    <div class="loader-line"><span></span></div>
-    <p>Preparing your experience...</p>
+  <div class="intro-loader" id="loader" role="status" aria-label="Loading">
+    <span class="il-deco round il-d1"></span>
+    <span class="il-deco round outline il-d2"></span>
+    <span class="il-deco il-d3"></span>
+    <span class="il-deco il-d4"></span>
+    <span class="il-deco il-d5"></span>
+    <span class="il-deco outline il-d6"></span>
+ 
+    <div class="il-center">
+      <div class="il-shapes" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p class="il-eyebrow">Welcome to</p>
+      <p class="il-title">my portfolio</p>
+      <div class="il-bar" aria-hidden="true"><span></span></div>
+      <p class="il-label">Loading<span>.</span><span>.</span><span>.</span></p>
+    </div>
   </div>
-
+ 
   <div class="app">
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
       <a href="#overview" class="brand">Portfolio<span>.</span></a>
       <p class="side-label">WORKSPACE</p>
-
+ 
       <nav class="navigation">
-        <a href="#timeline" class="nav-link">
-  <span>↗</span> Journey
-</a>
+        <a href="#timeline" class="nav-link"><span>↗</span> Journey</a>
         <a href="#terminal" class="nav-link"><span>⌘</span> Terminal</a>
         <a href="#overview" class="nav-link active"><span>⌂</span> Overview</a>
         <a href="#about" class="nav-link"><span>◉</span> About Me</a>
@@ -34,7 +51,7 @@
         <a href="#projects" class="nav-link"><span>▣</span> Projects</a>
         <a href="#contact" class="nav-link"><span>✉</span> Contact</a>
       </nav>
-
+ 
       <div class="sidebar-bottom">
         <div class="status-dot"></div>
         <div>
@@ -43,28 +60,29 @@
         </div>
       </div>
     </aside>
-
+    <div class="sidebar-backdrop"></div>
+ 
     <main class="main">
       <!-- Top navigation -->
       <header class="topbar">
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
         <span class="breadcrumb">Portfolio <span>/</span> Dashboard</span>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">
           <span id="themeIcon">☀</span>
           <span id="themeText">Light mode</span>
         </button>
       </header>
-
+ 
       <!-- Overview -->
       <section class="section overview" id="overview">
         <div class="welcome reveal">
           <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-<h1>
-    Hi, I'm
-    <span class="typing-name" id="typingName">John Patrick</span>
-    <span class="cursor">|</span>
-</h1>
-
+          <h1>
+            Hi, I'm
+            <span class="typing-name" id="typingName">John Patrick</span>
+            <span class="cursor">|</span>
+          </h1>
+ 
           <h2>BSIS Student <span class="muted">·</span> Aspiring Software Developer</h2>
           <p class="intro">
             I am learning to turn ideas into useful digital experiences.
@@ -75,48 +93,75 @@
             <a class="button secondary" href="#about">About Me</a>
           </div>
         </div>
+ 
+        <!-- Draggable ZPPSU ID on a lanyard (replaces the old profile card) -->
+        <div class="zid-slot">
+          <div class="zid-lanyard" id="zid-lanyard">
+            <svg aria-hidden="true">
+              <defs>
+                <!-- left strap: crimson at top, magenta in the middle, purple at the bottom -->
+                <linearGradient id="zid-gradL" gradientUnits="userSpaceOnUse" x1="0" y1="-20" x2="0" y2="300">
+                  <stop offset="0" stop-color="#8a1230"/><stop offset=".25" stop-color="#7a0f2a"/>
+                  <stop offset=".45" stop-color="#b3115a"/><stop offset=".72" stop-color="#c2206e"/>
+                  <stop offset=".93" stop-color="#5b1463"/><stop offset="1" stop-color="#3d0f4a"/>
+                </linearGradient>
+                <!-- right strap: deep burgundy -->
+                <linearGradient id="zid-gradR" gradientUnits="userSpaceOnUse" x1="0" y1="-20" x2="0" y2="300">
+                  <stop offset="0" stop-color="#5c0d26"/><stop offset=".5" stop-color="#6e1232"/><stop offset="1" stop-color="#3f0a24"/>
+                </linearGradient>
+                <!-- diagonal peach stripes at the top of each strap (local coords: +y runs down the strap) -->
+                <g id="zid-stripes" stroke="#f2c58f" stroke-width="3.2" stroke-linecap="butt">
+                  <line x1="-9" y1="33" x2="9" y2="23"/><line x1="-9" y1="45" x2="9" y2="35"/>
+                  <line x1="-9" y1="57" x2="9" y2="47"/><line x1="-9" y1="69" x2="9" y2="59"/>
+                  <text x="0" y="81" text-anchor="middle" font-size="9" fill="#ff9db3" fill-opacity=".6" stroke="none">❦</text>
+                </g>
+                <!-- chevrons at the bottom of each strap -->
+                <g id="zid-chev" fill="none" stroke="#f2c58f" stroke-width="3.2" stroke-linejoin="miter">
+                  <polyline points="-9,-46 0,-37 9,-46"/><polyline points="-9,-36 0,-27 9,-36"/><polyline points="-9,-26 0,-17 9,-26"/>
+                </g>
+                <path id="zid-tL" fill="none"/><path id="zid-tR" fill="none"/>
+              </defs>
 
-        <div class="profile-card reveal">
-          <div class="photo-frame">
-            <!-- Replace profile.jpg with your own photo file -->
-            <img src="IMG_20250316_130831_034(1).jpg" alt="John Patrick's profile photo"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-            <div class="photo-placeholder">JP<span>.</span></div>
-          </div>
-          <div class="profile-caption">
-            <div>
-              <h3>John Patrick Eugenio</h3>
-              <p>BSIS 1A · ZPPSU</p>
+              <!-- black edge, thin peach line, then the printed body -->
+              <path id="zid-edgeL" class="zid-band" stroke="#140508" stroke-width="23"/><path id="zid-edgeR" class="zid-band" stroke="#140508" stroke-width="23"/>
+              <path id="zid-peachL" class="zid-band" stroke="#f0b878" stroke-width="21"/><path id="zid-peachR" class="zid-band" stroke="#f0b878" stroke-width="21"/>
+              <path id="zid-strapL" class="zid-band" stroke="url(#zid-gradL)" stroke-width="18"/><path id="zid-strapR" class="zid-band" stroke="url(#zid-gradR)" stroke-width="18"/>
+
+              <g id="zid-topL"><use href="#zid-stripes"/></g><g id="zid-topR"><use href="#zid-stripes"/></g>
+              <g id="zid-botL"><use href="#zid-chev"/></g><g id="zid-botR"><use href="#zid-chev"/></g>
+
+              <!-- text reads bottom to top, like the real lanyard -->
+              <text class="zid-t-left" dy="3.5"><textPath href="#zid-tL" startOffset="52" textLength="175" lengthAdjust="spacingAndGlyphs">Zamboanga Peninsula Polytechnic State University</textPath></text>
+              <text dy="4.5"><textPath href="#zid-tR" startOffset="52"><tspan class="zid-t-big">ZPPSU</tspan><tspan class="zid-t-small" dx="8">THE UNIVERSITY</tspan></textPath></text>
+            </svg>
+
+            <div class="zid-id" id="zid-id" tabindex="0" role="img" aria-label="Draggable ID card for John Patrick Eugenio">
+              <div class="zid-clip"></div>
+              <div class="zid-face">
+                <div class="zid-school">
+                  <!-- zppsu-logo.png lives in the same folder as index.html -->
+                  <img src="zppsu-logo.png" alt="ZPPSU logo" onerror="this.outerHTML='<span class=zid-logo-fallback></span>'">
+                  <div><b>ZPPSU</b><small>Zamboanga Peninsula<br>Polytechnic State University</small></div>
+                </div>
+                <!-- Uses your photo.jpg; shows "JP." if the file is missing -->
+                <img class="zid-photo" src="photo.jpg" alt="John Patrick Eugenio" draggable="false"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+                <div class="zid-photo-ph">JP<span>.</span></div>
+                <img class="zid-mark" src="zppsu-logo.png" alt="" draggable="false">
+                <p class="zid-name">John Patrick Eugenio</p>
+                <p class="zid-role">Aspiring Software Developer</p>
+                <div class="zid-meta"><span>Ur Future Developer</span><div class="zid-barcode"></div></div>
+                <div class="zid-stripe"></div>
+              </div>
             </div>
-            <span class="profile-mark">JP</span>
           </div>
         </div>
       </section>
-
-      <!-- Stats -->
-      <section class="stats-grid reveal" aria-label="Portfolio overview">
-        <article class="stat-card">
-          <span class="stat-icon">⌘</span>
-          <p>Practice Projects</p>
-          <h3>05</h3>
-          <small>C++ learning exercises</small>
-        </article>
-        <article class="stat-card">
-          <span class="stat-icon">◈</span>
-          <p>Current Focus</p>
-          <h3>C++</h3>
-          <small>Logic and problem solving</small>
-        </article>
-        <article class="stat-card">
-          <span class="stat-icon">↗</span>
-          <p>Long-Term Goal</p>
-          <h3>Developer</h3>
-          <small>Build useful software</small>
-        </article>
-      </section>
+ 
 
       <!-- About -->
       <section class="section content-section reveal" id="about">
+
         <div class="section-heading">
           <div>
             <p class="eyebrow">GET TO KNOW ME</p>
@@ -126,32 +171,94 @@
         </div>
 
         <div class="about-grid">
+
           <div class="about-copy panel">
             <h3>Learning today. Building tomorrow.</h3>
+
             <p>
               I am a first-year Bachelor of Science in Information Systems
               student at Zamboanga Peninsula Polytechnic State University.
             </p>
+
             <p>
               I am currently learning C++ programming and web development.
-              I enjoy solving problems, practicing new concepts, and improving
-              my skills through small projects.
+              Although I am a slow learner, I enjoy learning new things,
+              practicing new concepts, and improving my skills through small projects.
             </p>
+
             <p>
               My goal is to become a software developer and create technology
               that can help people in their everyday lives.
             </p>
           </div>
+
           <div class="details panel">
             <h3>Personal Details</h3>
-            <div class="detail-row"><span>Name</span><strong>John Patrick Eugenio</strong></div>
-            <div class="detail-row"><span>Course</span><strong>BSIS 1A</strong></div>
-            <div class="detail-row"><span>University</span><strong>ZPPSU</strong></div>
-            <div class="detail-row"><span>Current language</span><strong>C++</strong></div>
-            <div class="detail-row"><span>Career goal</span><strong>Software Developer</strong></div>
+
+            <div class="detail-row">
+              <span>Name</span>
+              <strong>John Patrick Eugenio</strong>
+            </div>
+
+            <div class="detail-row">
+              <span>Course</span>
+              <strong>BSIS 1A</strong>
+            </div>
+
+            <div class="detail-row">
+              <span>University</span>
+              <strong>ZPPSU</strong>
+            </div>
+
+            <div class="detail-row">
+              <span>Current language</span>
+              <strong>C++</strong>
+            </div>
+
+            <div class="detail-row">
+              <span>Career goal</span>
+              <strong>Software Developer</strong>
+            </div>
           </div>
+
         </div>
       </section>
+      <!-- end of About -->
+
+
+      <!-- GitHub Contributions Card -->
+      <section class="ghx-wrap reveal" aria-label="GitHub activity">
+        <div class="ghx-card" id="github">
+
+          <header class="ghx-head">
+            <div class="ghx-user">
+              <img class="ghx-avatar" src="https://github.com/jpatrickeugenio.png"
+                   alt="GitHub profile picture" loading="lazy">
+              <div>
+                <h3>GitHub Activity</h3>
+                <a href="https://github.com/jpatrickeugenio" target="_blank" rel="noopener noreferrer">@jpatrickeugenio</a>
+              </div>
+            </div>
+            <a class="ghx-btn" href="https://github.com/jpatrickeugenio"
+               target="_blank" rel="noopener noreferrer">View Profile <span aria-hidden="true">↗</span></a>
+          </header>
+
+          <div class="ghx-scroll" aria-label="GitHub contribution calendar for jpatrickeugenio">
+            <div class="ghx-grid" id="ghx-grid"></div>
+          </div>
+
+          <footer class="ghx-foot">
+            <p>Every contribution is another step in my developer journey.</p>
+            <div class="ghx-legend" aria-hidden="true">Less
+              <i style="background:var(--l0)"></i><i style="background:var(--l1)"></i>
+              <i style="background:var(--l2)"></i><i style="background:var(--l3)"></i>
+              <i style="background:var(--l4)"></i> More
+            </div>
+          </footer>
+
+        </div>
+      </section>
+
 
       <!-- Skills -->
       <section class="section content-section reveal" id="skills">
@@ -163,31 +270,62 @@
           <span class="section-number">02 / SKILLS</span>
         </div>
 
-        <div class="skills-grid">
-          <article class="skill-card panel">
-            <div class="skill-title"><span>C++ Programming</span><span>Learning</span></div>
-            <p>Variables, conditions, loops, arrays, and functions.</p>
-            <div class="progress"><span style="width:45%"></span></div>
-          </article>
-          <article class="skill-card panel">
-            <div class="skill-title"><span>HTML</span><span>Learning</span></div>
-            <p>Structuring web pages and content.</p>
-            <div class="progress"><span style="width:25%"></span></div>
-          </article>
-          <article class="skill-card panel">
-            <div class="skill-title"><span>CSS</span><span>Learning</span></div>
-            <p>Layouts, colors, responsive design, and animation.</p>
-            <div class="progress"><span style="width:20%"></span></div>
-          </article>
-          <article class="skill-card panel">
-            <div class="skill-title"><span>JavaScript</span><span>Exploring</span></div>
-            <p>Learning to make websites interactive.</p>
-            <div class="progress"><span style="width:10%"></span></div>
-          </article>
+        <div class="mq-marquee" aria-label="My skills">
+          <div class="mq-track">
+            <div class="mq-set">
+
+              <article class="mq-card panel" style="--brand:#3d8bd8;--p:45%">
+                <div class="mq-head">
+                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2l12 7v14l-12 7L4 23V9z" fill="#00599C"/><text x="16" y="20.5" text-anchor="middle" font-size="11" font-weight="800" font-family="Arial, sans-serif" fill="#fff">C++</text></svg>
+                  <div><h3>C++ Programming</h3><span class="mq-status">LEARNING</span></div>
+                </div>
+                <p>Variables, loops, arrays, and functions.</p>
+                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>45%</b></div>
+              </article>
+
+              <article class="mq-card panel" style="--brand:#f06a3c;--p:25%">
+                <div class="mq-head">
+                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 3h22l-2 22-9 4-9-4z" fill="#E34F26"/><path d="M16 5v22l7.2-3.2L24.8 5z" fill="#EF652A"/><text x="16" y="21" text-anchor="middle" font-size="14" font-weight="800" font-family="Arial, sans-serif" fill="#fff">5</text></svg>
+                  <div><h3>HTML</h3><span class="mq-status">LEARNING</span></div>
+                </div>
+                <p>Structuring web pages and content.</p>
+                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>25%</b></div>
+              </article>
+
+              <article class="mq-card panel" style="--brand:#2d9be0;--p:20%">
+                <div class="mq-head">
+                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 3h22l-2 22-9 4-9-4z" fill="#1572B6"/><path d="M16 5v22l7.2-3.2L24.8 5z" fill="#33A9DC"/><text x="16" y="21" text-anchor="middle" font-size="14" font-weight="800" font-family="Arial, sans-serif" fill="#fff">3</text></svg>
+                  <div><h3>CSS</h3><span class="mq-status">LEARNING</span></div>
+                </div>
+                <p>Layouts, colors, and animation.</p>
+                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>20%</b></div>
+              </article>
+
+              <article class="mq-card panel" style="--brand:#f7df1e;--p:10%">
+                <div class="mq-head">
+                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="3" fill="#F7DF1E"/><text x="27" y="26" text-anchor="end" font-size="13" font-weight="800" font-family="Arial, sans-serif" fill="#000">JS</text></svg>
+                  <div><h3>JavaScript</h3><span class="mq-status">EXPLORING</span></div>
+                </div>
+                <p>Making websites interactive.</p>
+                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>10%</b></div>
+              </article>
+
+              <article class="mq-card panel" style="--brand:#f05032;--p:10%">
+                <div class="mq-head">
+                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="6.5" y="6.5" width="19" height="19" rx="3" transform="rotate(45 16 16)" fill="#F05032"/><text x="16" y="19.5" text-anchor="middle" font-size="9" font-weight="800" font-family="Arial, sans-serif" fill="#fff">Git</text></svg>
+                  <div><h3>Git & GitHub</h3><span class="mq-status">EXPLORING</span></div>
+                </div>
+                <p>Saving versions and sharing projects.</p>
+                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>10%</b></div>
+              </article>
+
+            </div>
+          </div>
         </div>
+
         <p class="note">Progress bars are editable estimates, not formal skill assessments.</p>
       </section>
-
+ 
       <!-- Goals -->
       <section class="section content-section reveal" id="goals">
         <div class="section-heading">
@@ -197,7 +335,7 @@
           </div>
           <span class="section-number">03 / GOALS</span>
         </div>
-
+ 
         <div class="roadmap">
           <article class="roadmap-item panel">
             <span class="roadmap-dot">01</span>
@@ -219,8 +357,9 @@
           </article>
         </div>
       </section>
-
+ 
       <!-- Projects -->
+           <!-- Projects -->
       <section class="section content-section reveal" id="projects">
         <div class="section-heading">
           <div>
@@ -231,211 +370,177 @@
         </div>
         <p class="section-description">Small projects that help me practice programming logic and build confidence.</p>
 
-        <div class="projects-grid">
-          <button class="project-card panel" data-project="number" type="button">
-            <div class="project-top"><span class="project-icon">01</span><span>↗</span></div>
-            <h3>Number Analyzer</h3>
-            <p>Calculate a sum, find the largest number, and count even and odd values.</p>
-            <div class="tags"><span>C++</span><span>Arrays</span><span>Loops</span></div>
-          </button>
-
-          <button class="project-card panel" data-project="grades" type="button">
-            <div class="project-top"><span class="project-icon">02</span><span>↗</span></div>
-            <h3>Student Grade Analyzer</h3>
-            <p>Calculate the average, highest and lowest grades, and pass/fail results.</p>
-            <div class="tags"><span>C++</span><span>Conditions</span></div>
-          </button>
-
-          <button class="project-card panel" data-project="pro" type="button">
-            <div class="project-top"><span class="project-icon">03</span><span>↗</span></div>
-            <h3>Number Analyzer Pro</h3>
-            <p>Analyze ten numbers, calculate averages, and count numbers greater than 50.</p>
-            <div class="tags"><span>C++</span><span>Logic</span></div>
-          </button>
-
-          <button class="project-card panel" data-project="ranking" type="button">
-            <div class="project-top"><span class="project-icon">04</span><span>↗</span></div>
-            <h3>Student Grade Ranking</h3>
-            <p>Process eight grades, find the highest and lowest, and count passing students.</p>
-            <div class="tags"><span>C++</span><span>Arrays</span></div>
-          </button>
-
-          <button class="project-card panel" data-project="bank" type="button">
-            <div class="project-top"><span class="project-icon">05</span><span>↗</span></div>
-            <h3>Bank Account Program</h3>
-            <p>A learning exercise for checking a balance, depositing, and withdrawing money.</p>
-            <div class="tags"><span>C++</span><span>Functions</span></div>
-          </button>
+        <div class="pe-split">
+          <div class="pe-list" id="peList" role="tablist" aria-label="C++ projects"></div>
+          <div id="peDetail" aria-live="polite"></div>
         </div>
       </section>
-<!-- INTERACTIVE TERMINAL -->
-<section class="section content-section reveal" id="terminal">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">COMMAND LINE</p>
-      <h2>Developer Terminal<span class="period">.</span></h2>
-    </div>
-    <span class="section-number">05 / TERMINAL</span>
-  </div>
+      <!-- INTERACTIVE TERMINAL -->
+      <section class="section content-section reveal" id="terminal">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">COMMAND LINE</p>
+            <h2>Developer Terminal<span class="period">.</span></h2>
+          </div>
+          <span class="section-number">05 / TERMINAL</span>
+        </div>
+ 
+        <p class="section-description">
+          Explore my portfolio by typing a command below.
+        </p>
+ 
+        <div class="terminal panel">
+          <div class="terminal-topbar">
+            <div class="terminal-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span>jp@portfolio: ~</span>
+          </div>
+ 
+          <div class="terminal-body" id="terminalOutput" aria-live="polite">
+            <p>Welcome to my portfolio terminal!</p>
+            <p>Type <strong>help</strong> to see available commands.</p>
+          </div>
+ 
+          <form id="terminalForm" class="terminal-input-row">
+            <label for="terminalInput">visitor@portfolio:~$</label>
+            <input
+              id="terminalInput"
+              type="text"
+              placeholder="Type a command..."
+              autocomplete="off"
+              aria-label="Terminal command"
+              maxlength="100"
+            >
+            <button type="submit">Run</button>
+          </form>
+        </div>
+        <p class="note">Tip: Try <code>help</code>, <code>about</code>, <code>skills</code>, or <code>projects</code>.</p>
+      </section>
+ 
+      <!-- DEVELOPER JOURNEY TIMELINE -->
+      <section class="section content-section reveal" id="timeline">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MY PROGRESS</p>
+            <h2>Developer Journey<span class="period">.</span></h2>
+          </div>
+          <span class="section-number">06 / TIMELINE</span>
+        </div>
+ 
+        <p class="section-description">
+          Every small step is part of becoming a better developer.
+        </p>
+ 
+        <div class="journey-timeline">
+          <article class="journey-item panel">
+            <span class="journey-number">01</span>
+            <div>
+              <span class="tag">FOUNDATION</span>
+              <h3>Learn C++ Basics</h3>
+              <p>Practice variables, input and output, data types, and operators.</p>
+              <div class="tags"><span>C++</span><span>Fundamentals</span></div>
+            </div>
+          </article>
+ 
+          <article class="journey-item panel">
+            <span class="journey-number">02</span>
+            <div>
+              <span class="tag">BUILDING LOGIC</span>
+              <h3>Conditions, Loops & Arrays</h3>
+              <p>Learn to solve problems, process numbers, and analyze student grades.</p>
+              <div class="tags"><span>Conditions</span><span>Loops</span><span>Arrays</span></div>
+            </div>
+          </article>
+ 
+          <article class="journey-item panel">
+            <span class="journey-number">03</span>
+            <div>
+              <span class="tag">CURRENT PROJECTS</span>
+              <h3>Build Interactive Projects</h3>
+              <p>Create practice programs and improve this portfolio using HTML, CSS, and JavaScript.</p>
+              <div class="tags"><span>Problem Solving</span><span>Web Development</span></div>
+            </div>
+          </article>
+ 
+          <article class="journey-item panel">
+            <span class="journey-number">04</span>
+            <div>
+              <span class="tag">FUTURE GOAL</span>
+              <h3>Become a Software Developer</h3>
+              <p>Continue learning object-oriented programming and build complete applications.</p>
+              <div class="tags"><span>OOP</span><span>Applications</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
 
-  <p class="section-description">
-    Explore my portfolio by typing a command below.
-  </p>
-
-  <div class="terminal panel">
-    <div class="terminal-topbar">
-      <div class="terminal-dots">
-        <span></span><span></span><span></span>
-      </div>
-      <span>jp@portfolio: ~</span>
-    </div>
-
-    <div class="terminal-body" id="terminalOutput" aria-live="polite">
-      <p>Welcome to my portfolio terminal!</p>
-      <p>Type <strong>help</strong> to see available commands.</p>
-    </div>
-
-    <form id="terminalForm" class="terminal-input-row">
-      <label for="terminalInput">visitor@portfolio:~$</label>
-      <input
-        id="terminalInput"
-        type="text"
-        placeholder="Type a command..."
-        autocomplete="off"
-        aria-label="Terminal command"
-        maxlength="100"
-      >
-      <button type="submit">Run</button>
-    </form>
-  </div>
-  <p class="note">Tip: Try <code>help</code>, <code>about</code>, <code>skills</code>, or <code>projects</code>.</p>
-</section>
-
-<!-- DEVELOPER JOURNEY TIMELINE -->
-<section class="section content-section reveal" id="timeline">
-  <div class="section-heading">
-    <div>
-      <p class="eyebrow">MY PROGRESS</p>
-      <h2>Developer Journey<span class="period">.</span></h2>
-    </div>
-    <span class="section-number">06 / TIMELINE</span>
-  </div>
-
-  <p class="section-description">
-    Every small step is part of becoming a better developer.
-  </p>
-
-  <div class="journey-timeline">
-    <article class="journey-item panel">
-      <span class="journey-number">01</span>
-      <div>
-        <span class="tag">FOUNDATION</span>
-        <h3>Learn C++ Basics</h3>
-        <p>Practice variables, input and output, data types, and operators.</p>
-        <div class="tags"><span>C++</span><span>Fundamentals</span></div>
-      </div>
-    </article>
-
-    <article class="journey-item panel">
-      <span class="journey-number">02</span>
-      <div>
-        <span class="tag">BUILDING LOGIC</span>
-        <h3>Conditions, Loops & Arrays</h3>
-        <p>Learn to solve problems, process numbers, and analyze student grades.</p>
-        <div class="tags"><span>Conditions</span><span>Loops</span><span>Arrays</span></div>
-      </div>
-    </article>
-
-    <article class="journey-item panel">
-      <span class="journey-number">03</span>
-      <div>
-        <span class="tag">CURRENT PROJECTS</span>
-        <h3>Build Interactive Projects</h3>
-        <p>Create practice programs and improve this portfolio using HTML, CSS, and JavaScript.</p>
-        <div class="tags"><span>Problem Solving</span><span>Web Development</span></div>
-      </div>
-    </article>
-
-    <article class="journey-item panel">
-      <span class="journey-number">04</span>
-      <div>
-        <span class="tag">FUTURE GOAL</span>
-        <h3>Become a Software Developer</h3>
-        <p>Continue learning object-oriented programming and build complete applications.</p>
-        <div class="tags"><span>OOP</span><span>Applications</span></div>
-      </div>
-    </article>
-  </div>
-</section>
       <!-- Contact -->
-      
-<!-- Contact -->
-<section class="section content-section reveal" id="contact">
-  <div class="contact-panel panel">
-    <p class="eyebrow">LET'S CONNECT</p>
-    <h2>Every expert was once a beginner<span class="period">.</span></h2>
-    <p>
-      I'm learning, building, and working toward becoming
-      a software developer. Send me a message below!
-    </p>
-
-    <form id="contactForm" class="contact-form">
-      <label for="contactName">Your Name</label>
-      <input
-        type="text"
-        id="contactName"
-        name="name"
-        placeholder="Enter your name"
-        maxlength="100"
-        required
-      >
-
-      <label for="contactEmail">Your Email</label>
-      <input
-        type="email"
-        id="contactEmail"
-        name="email"
-        placeholder="Enter your email"
-        maxlength="254"
-        required
-      >
-
-      <label for="contactMessage">Your Message</label>
-      <textarea
-        id="contactMessage"
-        name="message"
-        placeholder="Write your message..."
-        maxlength="5000"
-        rows="5"
-        required
-      ></textarea>
-
-      <button class="button primary" type="submit" id="sendButton">
-        Send Message
-      </button>
-
-      <p id="formStatus" role="status" aria-live="polite"></p>
-    </form>
-
-    <a
-      class="button secondary"
-      href="https://github.com/jpatrickeugenio"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Visit My GitHub ↗
-    </a>
-  </div>
-</section>
-
-
+      <section class="section content-section reveal" id="contact">
+        <div class="contact-panel panel">
+          <p class="eyebrow">LET'S CONNECT</p>
+          <h2>Every expert was once a beginner<span class="period">.</span></h2>
+          <p>
+            I'm learning, building, and working toward becoming
+            a software developer. Send me a message below!
+          </p>
+ 
+          <form id="contactForm" class="contact-form">
+            <label for="contactName">Your Name</label>
+            <input
+              type="text"
+              id="contactName"
+              name="name"
+              placeholder="Enter your name"
+              maxlength="100"
+              required
+            >
+ 
+            <label for="contactEmail">Your Email</label>
+            <input
+              type="email"
+              id="contactEmail"
+              name="email"
+              placeholder="Enter your email"
+              maxlength="254"
+              required
+            >
+ 
+            <label for="contactMessage">Your Message</label>
+            <textarea
+              id="contactMessage"
+              name="message"
+              placeholder="Write your message..."
+              maxlength="5000"
+              rows="5"
+              required
+            ></textarea>
+ 
+            <button class="button primary" type="submit" id="sendButton">
+              Send Message
+            </button>
+ 
+            <p id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+ 
+          <a
+            class="button secondary"
+            href="https://github.com/jpatrickeugenio"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit My GitHub ↗
+          </a>
+        </div>
+      </section>
+ 
       <footer class="footer">
         <span>© <span id="year"></span> John Patrick Eugenio</span>
         <span>Designed with purpose. Built while learning.</span>
       </footer>
     </main>
   </div>
-
+ 
   <!-- Project details modal -->
   <div class="modal" id="projectModal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -446,5 +551,39 @@
       <div class="tags" id="modalTags"></div>
     </div>
   </div>
+ 
+<script>
+(() => {
+  const loader = document.getElementById("loader");
+  if (!loader) return;
+
+  let opened = false;
+
+  function openWebsite() {
+    if (opened) return;
+    opened = true;
+
+    loader.classList.add("is-hidden");
+    document.body.classList.remove("site-loading");
+    document.body.classList.add("site-loaded");
+  }
+
+  // Open the website when the loading bar reaches the end.
+  document.addEventListener("animationend", function (event) {
+    if (event.animationName === "il-fill") {
+      openWebsite();
+    }
+  }, true);
+
+  // Backup: open after the page finishes loading.
+  window.addEventListener("load", function () {
+    setTimeout(openWebsite, 3500);
+  }, { once: true });
+
+  // Safety backup if the animation or page loading gets stuck.
+  setTimeout(openWebsite, 6500);
+})();
+</script>
+
 </body>
 </html>

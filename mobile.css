@@ -91,10 +91,13 @@ a, button, .nav-link {
 
   /* about */
   .about-grid { gap: 12px; }
-  .about-copy, .details { padding: 18px; }
-  .about-copy h3, .details h3 { font-size: 15px; margin-bottom: 12px; }
-  .about-copy p { font-size: 13px; line-height: 1.75; }
-  .detail-row { font-size: 12px; padding: 10px 0; }
+  #about { padding-top: 36px; }
+  #about .section-heading h2 { font-size: 22px; }
+  #about .section-number { font-size: 10px; }
+  .about-copy, .details { padding: 14px; }
+  .about-copy h3, .details h3 { font-size: 14px; margin-bottom: 10px; }
+  .about-copy p { font-size: 12px; line-height: 1.6; }
+  .detail-row { font-size: 11px; padding: 8px 0; }
 
   /* github card */
   .ghx-card { padding: 12px; border-radius: 14px; animation: none; }
@@ -203,6 +206,13 @@ a, button, .nav-link {
 
   /* smoother scrolling on phones: shorter reveals */
   .reveal { transition-duration: .5s; }
+
+  /* Avoid continuous decorative work while scrolling on phones. */
+  .gal-strip.in .gal-item {
+    animation: gal-in .55s cubic-bezier(.22, 1, .36, 1) backwards;
+    animation-delay: calc(var(--i) * 55ms);
+  }
+  .mq-track { will-change: transform; }
 }
 
 /* ---------- Small phones ---------- */
@@ -212,6 +222,24 @@ a, button, .nav-link {
   .section-heading h2 { font-size: 22px; }
   .mq-marquee { margin: -24px -14px; padding: 24px 14px; }
   .gal-strip { margin: 0 -14px; padding: 16px 14px; }
+}
+
+/* Fallback for mobile browsers without View Transitions. */
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    background: var(--bg);
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+
+  body.theme-fallback-switching::after {
+    opacity: 1;
+  }
 }
 
 /* ---------- Touch screens (no mouse): no sticky hover effects ---------- */

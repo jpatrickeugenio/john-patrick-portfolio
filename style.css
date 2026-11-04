@@ -1551,6 +1551,7 @@ img { max-width: 100%; }
 @media (max-width: 760px) {
   .sidebar { width: min(280px, 85vw); }
   body:has(.sidebar.open) { overflow: hidden; }
+  body.menu-open { overflow: hidden; }
 
   .theme-toggle, .menu-toggle, .button,
   .terminal-input-row button, .nav-link { min-height: 44px; }

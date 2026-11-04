@@ -12,6 +12,8 @@
     track.appendChild(copy);
   });
 
+  if (!matchMedia("(hover: hover)").matches) return;
+
   // Big hover, even if an invisible element is on top of the card
   let current = null;
 

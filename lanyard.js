@@ -105,6 +105,9 @@
 
   if (!marquee || !track || !firstSet) return;
 
+  // Let the compositor run the existing CSS marquee on touch devices.
+  if (matchMedia("(max-width: 760px)").matches) return;
+
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (RESPECT_REDUCED_MOTION && reduceMotion) return;

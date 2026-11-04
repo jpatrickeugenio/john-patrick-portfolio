@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="theme-color" content="#090909">
+  <meta name="theme-color" content="#090909" id="themeColor">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="John Patrick Eugenio's developer portfolio and learning projects.">
@@ -20,6 +20,7 @@
 
   <script src="lanyard.js" defer></script>
   <script src="java.js" defer></script>
+  <script src="menu.js" defer></script>
   <script src="skills.js" defer></script>
   <script src="projects.js" defer></script>
   <script src="theme.js" defer></script>
@@ -83,12 +84,12 @@ setTimeout(() => {
         </div>
       </div>
     </aside>
-    <div class="sidebar-backdrop"></div>
+    <div class="sidebar-backdrop" aria-hidden="true"></div>
  
     <main class="main">
       <!-- Top navigation -->
       <header class="topbar">
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
         <span class="breadcrumb">Portfolio <span>/</span> Dashboard</span>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">
           <span id="themeIcon">☀</span>

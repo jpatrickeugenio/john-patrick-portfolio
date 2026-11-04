@@ -2,6 +2,7 @@
   const toggle = document.getElementById("themeToggle");
   const icon = document.getElementById("themeIcon");
   const label = document.getElementById("themeText");
+  const themeColor = document.getElementById("themeColor");
   if (!toggle) return;
 
   function applyTheme(isLight) {
@@ -9,6 +10,7 @@
 
     if (icon) icon.textContent = isLight ? "☾" : "☀";
     if (label) label.textContent = isLight ? "Dark mode" : "Light mode";
+    if (themeColor) themeColor.setAttribute("content", isLight ? "#f4f4f4" : "#090909");
 
     toggle.setAttribute("aria-pressed", String(isLight));
 
@@ -28,6 +30,7 @@
   document.body.classList.toggle("light", saved === "light");
   if (icon) icon.textContent = saved === "light" ? "☾" : "☀";
   if (label) label.textContent = saved === "light" ? "Dark mode" : "Light mode";
+  if (themeColor) themeColor.setAttribute("content", saved === "light" ? "#f4f4f4" : "#090909");
 
   // Capture phase + stopImmediatePropagation: if java.js still has its own
   // theme handler, it will not run and toggle the theme a second time.
@@ -37,9 +40,20 @@
     const isLight = !document.body.classList.contains("light");
     const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Older browsers: switch instantly
+    // Older mobile browsers get a short fade instead of a hard color snap.
     if (!document.startViewTransition || reduceMotion) {
+      if (!document.startViewTransition && !reduceMotion) {
+        document.body.classList.add("theme-fallback-switching");
+      }
+
       applyTheme(isLight);
+
+      if (!document.startViewTransition && !reduceMotion) {
+        window.setTimeout(() => {
+          document.body.classList.remove("theme-fallback-switching");
+        }, 350);
+      }
+
       return;
     }
 

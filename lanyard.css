@@ -61,3 +61,13 @@
 @media (max-width: 760px) {
   .zid-slot { order: -1; }
 }
+/* let the mouse pass through the lanyard area, except on the card itself */
+.zid-slot,
+.zid-lanyard,
+.zid-lanyard svg {
+  pointer-events: none;
+}
+
+.zid-id {
+  pointer-events: auto;
+}

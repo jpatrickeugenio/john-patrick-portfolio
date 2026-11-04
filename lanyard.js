@@ -91,3 +91,79 @@
     }).observe(loader, { attributes: true, attributeFilter: ['class'] });
   }
 })();
+/* =========================================================
+   14. SKILLS MARQUEE (left to right, seamless loop)
+========================================================= */
+
+(() => {
+  const SPEED = 40;                      // pixels per second (bigger = faster)
+  const RESPECT_REDUCED_MOTION = true;   // set to false to always scroll
+
+  const marquee = document.querySelector(".mq-marquee");
+  const track = marquee && marquee.querySelector(".mq-track");
+  const firstSet = track && track.querySelector(".mq-set");
+
+  if (!marquee || !track || !firstSet) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (RESPECT_REDUCED_MOTION && reduceMotion) return;
+
+  // JavaScript moves the row, so turn off the CSS animation.
+  track.style.animation = "none";
+  track.style.willChange = "transform";
+
+  let setWidth = 0;
+  let offset = 0;
+  let lastTime = 0;
+  let paused = false;
+
+  function build() {
+    track.querySelectorAll(".mq-set[data-clone]").forEach(el => el.remove());
+
+    setWidth = firstSet.getBoundingClientRect().width;
+
+    if (!setWidth) return;
+
+    const copies = Math.ceil(marquee.clientWidth / setWidth) + 1;
+
+    for (let i = 0; i < copies; i++) {
+      const copy = firstSet.cloneNode(true);
+
+      copy.setAttribute("aria-hidden", "true");
+      copy.setAttribute("data-clone", "");
+      track.appendChild(copy);
+    }
+  }
+
+  function tick(now) {
+    if (!lastTime) lastTime = now;
+
+    const seconds = Math.min(now - lastTime, 50) / 1000;
+    lastTime = now;
+
+    if (!paused && setWidth) {
+      offset = (offset + SPEED * seconds) % setWidth;
+      track.style.transform = `translate3d(${offset - setWidth}px, 0, 0)`;
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  build();
+  window.addEventListener("load", build);
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(build, 200);
+  });
+
+  // Pause while someone points at or focuses a card.
+  marquee.addEventListener("mouseenter", () => { paused = true; });
+  marquee.addEventListener("mouseleave", () => { paused = false; });
+  marquee.addEventListener("focusin", () => { paused = true; });
+  marquee.addEventListener("focusout", () => { paused = false; });
+
+  requestAnimationFrame(tick);
+})();

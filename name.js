@@ -13,7 +13,8 @@
   if (holder !== target) holder.setAttribute("aria-hidden", "true");
 
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-  const finished = (list) => Promise.all(list.map((animation) => animation.finished));
+  const finished = (list) =>
+    Promise.all(list.map((animation) => animation.finished));
 
   // One span per letter
   function build(text, hidden) {
@@ -46,15 +47,15 @@
       span.animate(
         [
           { opacity: 1, transform: "translateX(0)", filter: "blur(0px)" },
-          { opacity: 0, transform: "translateX(10px)", filter: "blur(4px)" }
+          { opacity: 0, transform: "translateX(10px)", filter: "blur(4px)" },
         ],
         {
           duration: eraseDuration,
           delay: i * eraseStep,
           easing: "ease-in",
-          fill: "forwards"
-        }
-      )
+          fill: "forwards",
+        },
+      ),
     );
 
     await finished(erase);
@@ -68,7 +69,7 @@
     // 3. The cursor glides smoothly from the old width to the new one
     const glide = target.animate(
       [{ width: fromWidth + "px" }, { width: toWidth + "px" }],
-      { duration: 450, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+      { duration: 450, easing: "cubic-bezier(0.22, 1, 0.36, 1)" },
     );
 
     // 4. The new name appears from left to right, sliding in from the left
@@ -79,22 +80,24 @@
       span.animate(
         [
           { opacity: 0, transform: "translateX(-16px)", filter: "blur(4px)" },
-          { opacity: 1, transform: "translateX(0)", filter: "blur(0px)" }
+          { opacity: 1, transform: "translateX(0)", filter: "blur(0px)" },
         ],
         {
           duration: typeDuration,
           delay: 120 + i * typeStep,
           easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-          fill: "both"
-        }
-      )
+          fill: "both",
+        },
+      ),
     );
 
     await finished([glide, ...reveal]);
 
     // 5. Clean up without any visual change
     reveal.forEach((animation) => animation.cancel());
-    letters.forEach((span) => { span.style.opacity = ""; });
+    letters.forEach((span) => {
+      span.style.opacity = "";
+    });
   }
 
   (async function loop() {

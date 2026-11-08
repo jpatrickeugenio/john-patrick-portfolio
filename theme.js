@@ -7,10 +7,20 @@
 
   function applyTheme(isLight) {
     document.body.classList.toggle("light", isLight);
+    document.body.classList.add("theme-transitioning");
+    window.setTimeout(
+      () => document.body.classList.remove("theme-transitioning"),
+      320,
+    );
 
     if (icon) icon.textContent = isLight ? "☾" : "☀";
     if (label) label.textContent = isLight ? "Dark mode" : "Light mode";
-    if (themeColor) themeColor.setAttribute("content", isLight ? "#f4f4f4" : "#090909");
+    toggle.setAttribute(
+      "aria-label",
+      isLight ? "Turn the light off" : "Turn the light on",
+    );
+    if (themeColor)
+      themeColor.setAttribute("content", isLight ? "#f4f4f4" : "#090909");
 
     toggle.setAttribute("aria-pressed", String(isLight));
 
@@ -30,64 +40,34 @@
   document.body.classList.toggle("light", saved === "light");
   if (icon) icon.textContent = saved === "light" ? "☾" : "☀";
   if (label) label.textContent = saved === "light" ? "Dark mode" : "Light mode";
-  if (themeColor) themeColor.setAttribute("content", saved === "light" ? "#f4f4f4" : "#090909");
-
-  // Capture phase + stopImmediatePropagation: if java.js still has its own
-  // theme handler, it will not run and toggle the theme a second time.
-  toggle.addEventListener("click", (event) => {
-    event.stopImmediatePropagation();
-
-    const isLight = !document.body.classList.contains("light");
-    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // Older mobile browsers get a short fade instead of a hard color snap.
-    if (!document.startViewTransition || reduceMotion) {
-      if (!document.startViewTransition && !reduceMotion) {
-        document.body.classList.add("theme-fallback-switching");
-      }
-
-      applyTheme(isLight);
-
-      if (!document.startViewTransition && !reduceMotion) {
-        window.setTimeout(() => {
-          document.body.classList.remove("theme-fallback-switching");
-        }, 350);
-      }
-
-      return;
-    }
-
-    // The new theme spreads out from the button in a circle
-    const rect = toggle.getBoundingClientRect();
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + rect.height / 2;
-    const radius = Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
+  toggle.setAttribute(
+    "aria-label",
+    saved === "light" ? "Turn the light off" : "Turn the light on",
+  );
+  if (themeColor)
+    themeColor.setAttribute(
+      "content",
+      saved === "light" ? "#f4f4f4" : "#090909",
     );
 
-    document.documentElement.classList.add("theme-switching");
+  let flipTimer = 0;
 
-    const transition = document.startViewTransition(() => applyTheme(isLight));
+  toggle.addEventListener(
+    "click",
+    (event) => {
+      event.stopImmediatePropagation();
 
-    transition.ready.then(() => {
-      document.documentElement.animate(
-        {
-          clipPath: [
-            "circle(0px at " + x + "px " + y + "px)",
-            "circle(" + radius + "px at " + x + "px " + y + "px)"
-          ]
-        },
-        {
-          duration: 750,
-          easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-          pseudoElement: "::view-transition-new(root)"
-        }
+      const isLight = !document.body.classList.contains("light");
+      toggle.classList.remove("is-flipping");
+      void toggle.offsetWidth;
+      toggle.classList.add("is-flipping");
+      window.clearTimeout(flipTimer);
+      flipTimer = window.setTimeout(
+        () => toggle.classList.remove("is-flipping"),
+        420,
       );
-    });
-
-    transition.finished.finally(() => {
-      document.documentElement.classList.remove("theme-switching");
-    });
-  }, true);
+      applyTheme(isLight);
+    },
+    true,
+  );
 })();

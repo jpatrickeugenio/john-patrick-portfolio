@@ -27,8 +27,10 @@
   document.addEventListener("mousemove", (e) => {
     const r = marquee.getBoundingClientRect();
     const inside =
-      e.clientX >= r.left && e.clientX <= r.right &&
-      e.clientY >= r.top && e.clientY <= r.bottom;
+      e.clientX >= r.left &&
+      e.clientX <= r.right &&
+      e.clientY >= r.top &&
+      e.clientY <= r.bottom;
 
     if (!inside) return setHover(null);
 

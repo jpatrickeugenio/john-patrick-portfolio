@@ -5,7 +5,20 @@
   if (!grid) return;
 
   const USER = "jpatrickeugenio";
-  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const MONTHS = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const scroller = grid.closest(".ghx-scroll") || grid.parentElement;
 
   // styles for the squares (kept here so the grid always shows, whatever style.css says)
@@ -41,7 +54,10 @@
         const label = document.createElement("span");
         label.className = "ghx-month";
         const m = date.getUTCMonth();
-        if (m !== lastMonth) { label.textContent = MONTHS[m]; lastMonth = m; }
+        if (m !== lastMonth) {
+          label.textContent = MONTHS[m];
+          lastMonth = m;
+        }
         week.appendChild(label);
         grid.appendChild(week);
 
@@ -57,12 +73,18 @@
       const cell = document.createElement("span");
       cell.className = "ghx-cell";
       cell.dataset.l = d.level != null ? d.level : levelOf(d.count);
-      cell.title = d.count + (d.count === 1 ? " contribution" : " contributions") + " on " + d.date;
+      cell.title =
+        d.count +
+        (d.count === 1 ? " contribution" : " contributions") +
+        " on " +
+        d.date;
       week.appendChild(cell);
     });
 
     // scroll to the latest month
-    requestAnimationFrame(() => { scroller.scrollLeft = scroller.scrollWidth; });
+    requestAnimationFrame(() => {
+      scroller.scrollLeft = scroller.scrollWidth;
+    });
   }
 
   // empty year (used until the real data arrives, or if it can't load)
@@ -82,10 +104,16 @@
   const ctrl = new AbortController();
   const timeout = setTimeout(() => ctrl.abort(), 10000);
 
-  fetch("https://github-contributions-api.jogruber.de/v4/" + USER + "?y=last", { signal: ctrl.signal })
-    .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  fetch("https://github-contributions-api.jogruber.de/v4/" + USER + "?y=last", {
+    signal: ctrl.signal,
+  })
+    .then((r) => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
     .then((data) => {
-      if (data && data.contributions && data.contributions.length) build(data.contributions);
+      if (data && data.contributions && data.contributions.length)
+        build(data.contributions);
     })
     .catch((err) => console.warn("GitHub activity could not load:", err))
     .finally(() => clearTimeout(timeout));

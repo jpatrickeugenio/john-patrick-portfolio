@@ -1,4 +1,3 @@
-
 :root {
   color-scheme: dark;
   --bg: #090909;
@@ -134,7 +133,9 @@ button {
   color: #080808;
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 
 button:hover {

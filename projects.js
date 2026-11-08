@@ -22,11 +22,15 @@
         "        cin >> nums[i];",
         "        sum += nums[i];",
         "    }",
-        "    cout << \"Sum: \" << sum;",
-        "}"
+        '    cout << "Sum: " << sum;',
+        "}",
       ],
       run: ["$ ./number_analyzer", "Sum: 28", "Largest: 9", "Even: 3 | Odd: 2"],
-      learn: [["Arrays", "Store five values in one variable."], ["Loops", "Repeat the same step for every number."], ["Conditions", "Decide if a number is even or odd."]]
+      learn: [
+        ["Arrays", "Store five values in one variable."],
+        ["Loops", "Repeat the same step for every number."],
+        ["Conditions", "Decide if a number is even or odd."],
+      ],
     },
     {
       sym: "02",
@@ -41,13 +45,22 @@
         "}",
         "double avg = total / 5;",
         "if (avg >= 75) {",
-        "    cout << \"Passed\";",
+        '    cout << "Passed";',
         "} else {",
-        "    cout << \"Failed\";",
-        "}"
+        '    cout << "Failed";',
+        "}",
       ],
-      run: ["$ ./grade_analyzer", "Average: 84.2", "Highest: 92 | Lowest: 75", "Passed: 5 | Failed: 0"],
-      learn: [["Average", "Add everything, then divide by the count."], ["Conditions", "Pass or fail with if and else."], ["Arrays", "Keep all the grades together."]]
+      run: [
+        "$ ./grade_analyzer",
+        "Average: 84.2",
+        "Highest: 92 | Lowest: 75",
+        "Passed: 5 | Failed: 0",
+      ],
+      learn: [
+        ["Average", "Add everything, then divide by the count."],
+        ["Conditions", "Pass or fail with if and else."],
+        ["Arrays", "Keep all the grades together."],
+      ],
     },
     {
       sym: "03",
@@ -62,10 +75,19 @@
         "        count++;",
         "    }",
         "}",
-        "cout << \"Over 50: \" << count;"
+        'cout << "Over 50: " << count;',
       ],
-      run: ["$ ./number_analyzer_pro", "Sum: 463 | Average: 46.3", "Largest: 98 | Smallest: 7", "Over 50: 4"],
-      learn: [["Counters", "Count only the values that match."], ["Min and max", "Compare each value with the best so far."], ["Problem solving", "Break one big task into small steps."]]
+      run: [
+        "$ ./number_analyzer_pro",
+        "Sum: 463 | Average: 46.3",
+        "Largest: 98 | Smallest: 7",
+        "Over 50: 4",
+      ],
+      learn: [
+        ["Counters", "Count only the values that match."],
+        ["Min and max", "Compare each value with the best so far."],
+        ["Problem solving", "Break one big task into small steps."],
+      ],
     },
     {
       sym: "04",
@@ -79,10 +101,19 @@
         "    if (grades[i] >= 75) pass++;",
         "    if (grades[i] >= 90) excellent++;",
         "}",
-        "cout << \"Passing: \" << pass;"
+        'cout << "Passing: " << pass;',
       ],
-      run: ["$ ./grade_ranking", "Highest: 96 | Lowest: 68", "Average: 82.5", "Passing: 6 | Excellent: 2"],
-      learn: [["Two counters", "Track passing and excellent grades together."], ["Arrays", "Process eight values in one loop."], ["Conditions", "Check each grade against a limit."]]
+      run: [
+        "$ ./grade_ranking",
+        "Highest: 96 | Lowest: 68",
+        "Average: 82.5",
+        "Passing: 6 | Excellent: 2",
+      ],
+      learn: [
+        ["Two counters", "Track passing and excellent grades together."],
+        ["Arrays", "Process eight values in one loop."],
+        ["Conditions", "Check each grade against a limit."],
+      ],
     },
     {
       sym: "05",
@@ -94,15 +125,24 @@
         "",
         "void withdraw(double amount) {",
         "    if (amount > balance) {",
-        "        cout << \"Insufficient balance\";",
+        '        cout << "Insufficient balance";',
         "    } else {",
         "        balance -= amount;",
         "    }",
-        "}"
+        "}",
       ],
-      run: ["$ ./bank_account", "Balance: 1000", "Deposit 500 -> Balance: 1500", "Withdraw 2000 -> Insufficient balance"],
-      learn: [["Functions", "Put one job in one reusable block."], ["Variables", "Keep the balance and update it."], ["Validation", "Check the input before changing data."]]
-    }
+      run: [
+        "$ ./bank_account",
+        "Balance: 1000",
+        "Deposit 500 -> Balance: 1500",
+        "Withdraw 2000 -> Insufficient balance",
+      ],
+      learn: [
+        ["Functions", "Put one job in one reusable block."],
+        ["Variables", "Keep the balance and update it."],
+        ["Validation", "Check the input before changing data."],
+      ],
+    },
   ];
 
   const esc = (s) =>
@@ -121,7 +161,15 @@
 
     while ((m = token.exec(line))) {
       out += esc(line.slice(last, m.index));
-      const cls = m[1] ? "pe-s" : m[2] ? "pe-k" : m[3] ? "pe-t" : m[4] ? "pe-k" : "pe-n";
+      const cls = m[1]
+        ? "pe-s"
+        : m[2]
+          ? "pe-k"
+          : m[3]
+            ? "pe-t"
+            : m[4]
+              ? "pe-k"
+              : "pe-n";
       out += '<span class="' + cls + '">' + esc(m[0]) + "</span>";
       last = token.lastIndex;
     }
@@ -134,27 +182,56 @@
     const runDelay = p.code.length * 0.12 + 0.3;
 
     const code = p.code
-      .map((line, i) => '<span class="pe-line" style="--i:' + i + '">' + highlight(line) + "</span>")
+      .map(
+        (line, i) =>
+          '<span class="pe-line" style="--i:' +
+          i +
+          '">' +
+          highlight(line) +
+          "</span>",
+      )
       .join("");
 
     const run = p.run
       .map((line, i) => {
         const cls = i === 0 ? "pe-cmd" : "pe-ok";
-        return '<span class="' + cls + ' pe-run" style="--d:' + (runDelay + i * 0.35).toFixed(2) + 's">' + esc(line) + "</span>";
+        return (
+          '<span class="' +
+          cls +
+          ' pe-run" style="--d:' +
+          (runDelay + i * 0.35).toFixed(2) +
+          's">' +
+          esc(line) +
+          "</span>"
+        );
       })
       .join("");
 
     const learn = p.learn
-      .map((item) => "<div><b>" + esc(item[0]) + "</b>" + esc(item[1]) + "</div>")
+      .map(
+        (item) => "<div><b>" + esc(item[0]) + "</b>" + esc(item[1]) + "</div>",
+      )
       .join("");
 
     detail.innerHTML =
       '<div class="pe-panel">' +
-        "<h3>" + esc(p.name) + "</h3>" +
-        '<p class="pe-desc">' + esc(p.desc) + "</p>" +
-        '<div class="pe-win pe-code"><div class="pe-bar"><i></i><i></i><i></i><span>' + esc(p.file) + "</span></div><pre>" + code + "</pre></div>" +
-        '<div class="pe-win"><div class="pe-bar"><i></i><i></i><i></i><span>sample output</span></div><pre>' + run + "</pre></div>" +
-        '<div class="pe-learn">' + learn + "</div>" +
+      "<h3>" +
+      esc(p.name) +
+      "</h3>" +
+      '<p class="pe-desc">' +
+      esc(p.desc) +
+      "</p>" +
+      '<div class="pe-win pe-code"><div class="pe-bar"><i></i><i></i><i></i><span>' +
+      esc(p.file) +
+      "</span></div><pre>" +
+      code +
+      "</pre></div>" +
+      '<div class="pe-win"><div class="pe-bar"><i></i><i></i><i></i><span>sample output</span></div><pre>' +
+      run +
+      "</pre></div>" +
+      '<div class="pe-learn">' +
+      learn +
+      "</div>" +
       "</div>";
 
     list.querySelectorAll(".pe-item").forEach((button, i) => {
@@ -168,12 +245,33 @@
     const button = document.createElement("button");
     button.type = "button";
     button.className = "pe-item";
+    button.style.setProperty("--project-index", i);
     button.setAttribute("role", "tab");
     button.setAttribute("aria-label", p.name);
-    button.innerHTML = '<span class="pe-sym">' + p.sym + "</span><b>" + esc(p.name) + "</b>";
+    button.innerHTML =
+      '<span class="pe-sym">' + p.sym + "</span><b>" + esc(p.name) + "</b>";
     button.addEventListener("click", () => show(i));
     list.appendChild(button);
   });
 
   show(0);
+
+  const section = document.getElementById("projects");
+  if (!section) return;
+
+  if (
+    matchMedia("(prefers-reduced-motion: reduce)").matches ||
+    !("IntersectionObserver" in window)
+  ) {
+    section.classList.add("projects-visible");
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      section.classList.toggle("projects-visible", entry.isIntersecting);
+    },
+    { threshold: 0.15 },
+  );
+  observer.observe(section);
 })();

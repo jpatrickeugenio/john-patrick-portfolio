@@ -1,569 +1,1087 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta name="theme-color" content="#090909" id="themeColor">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="John Patrick Eugenio's developer portfolio and learning projects.">
+  <head>
+    <meta name="theme-color" content="#090909" id="themeColor" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="John Patrick Eugenio's developer portfolio and learning projects."
+    />
 
-  <title>John Patrick | Developer Portfolio</title>
+    <title>John Patrick | Developer Portfolio</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=DM+Sans:wght@500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500&family=Great+Vibes&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="lanyard.css">
-  <link rel="stylesheet" href="gallery.css">
-  <link rel="stylesheet" href="idvideo.css">
-  <link rel="stylesheet" href="idvideo.css">
-  <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/lanyard.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/idvideo.css" />
+    <link rel="stylesheet" href="css/idvideo.css" />
+    <link rel="stylesheet" href="css/Goals.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
+  
 
-  <script src="lanyard.js" defer></script>
-  <script src="java.js" defer></script>
-  <script src="menu.js" defer></script>
-  <script src="skills.js" defer></script>
-  <script src="projects.js" defer></script>
-  <script src="theme.js" defer></script>
-  <script src="name.js" defer></script>
-  <script src="gallery.js" defer></script>
-  <script src="idvideo.js" defer></script>
-  <script src="github.js" defer></script>
-</head>
-<script>
-// Safety net: if the main script crashed, still show the page
-setTimeout(() => {
-  document.querySelectorAll(".reveal").forEach((el) => el.classList.add("visible"));
+    <script src="js/lanyard.js" defer></script>
+    <script src="js/java.js" defer></script>
+    <script src="js/menu.js" defer></script>
+    <script src="js/resume.js" defer></script>
+    <script src="js/skills.js" defer></script>
+    <script src="js/projects.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/name.js" defer></script>
+    <script src="js/gallery.js" defer></script>
+    <script src="js/idvideo.js" defer></script>
+    <script src="js/github.js" defer></script>
+    <script src="js/chatbot.js" defer></script>
+    <script src="js/contact.js" defer></script>
+    <script src="js/Goals.js" defer></script>
+  </head>
+  <script>
+    // Safety net: if the main script crashed, still show the page
+    setTimeout(() => {
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => el.classList.add("visible"));
 
-  const loader = document.getElementById("loader");
-  if (loader) loader.classList.add("is-hidden");
+      const loader = document.getElementById("loader");
+      if (loader) loader.classList.add("is-hidden");
 
-  document.body.classList.remove("site-loading");
-}, 4000);
-</script>
-<body>
-  <!-- Loading screen -->
-  <div class="intro-loader" id="loader" role="status" aria-label="Loading">
-    <span class="il-deco round il-d1"></span>
-    <span class="il-deco round outline il-d2"></span>
-    <span class="il-deco il-d3"></span>
-    <span class="il-deco il-d4"></span>
-    <span class="il-deco il-d5"></span>
-    <span class="il-deco outline il-d6"></span>
- 
-    <div class="il-center">
-      <div class="il-shapes" aria-hidden="true"><span></span><span></span><span></span></div>
-      <p class="il-eyebrow">Welcome to</p>
-      <p class="il-title">my portfolio</p>
-      <div class="il-bar" aria-hidden="true"><span></span></div>
-      <p class="il-label">Loading<span>.</span><span>.</span><span>.</span></p>
-    </div>
-  </div>
- 
-  <div class="app">
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-      <a href="#overview" class="brand">Portfolio<span>.</span></a>
-      <p class="side-label">WORKSPACE</p>
- 
-      <nav class="navigation">
-        <a href="#gallery" class="nav-link"><span>↗</span> Gallery</a>
-        <a href="#terminal" class="nav-link"><span>⌘</span> Terminal</a>
-        <a href="#overview" class="nav-link active"><span>⌂</span> Overview</a>
-        <a href="#about" class="nav-link"><span>◉</span> About Me</a>
-        <a href="#skills" class="nav-link"><span>▤</span> Skills</a>
-        <a href="#goals" class="nav-link"><span>↗</span> Goals</a>
-        <a href="#projects" class="nav-link"><span>▣</span> Projects</a>
-        <a href="#contact" class="nav-link"><span>✉</span> Contact</a>
-      </nav>
- 
-      <div class="sidebar-bottom">
-        <div class="status-dot"></div>
-        <div>
-          <strong>Learning in progress</strong>
-          <small>Building one project at a time.</small>
+      document.body.classList.remove("site-loading");
+    }, 4000);
+  </script>
+  <body>
+    <!-- Loading screen -->
+    <div class="intro-loader" id="loader" role="status" aria-label="Loading">
+      <span class="il-deco round il-d1"></span>
+      <span class="il-deco round outline il-d2"></span>
+      <span class="il-deco il-d3"></span>
+      <span class="il-deco il-d4"></span>
+      <span class="il-deco il-d5"></span>
+      <span class="il-deco outline il-d6"></span>
+
+      <div class="il-center">
+        <div class="il-shapes" aria-hidden="true">
+          <span></span><span></span><span></span>
         </div>
-      </div>
-    </aside>
-    <div class="sidebar-backdrop" aria-hidden="true"></div>
- 
-    <main class="main">
-      <!-- Top navigation -->
-      <header class="topbar">
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">☰</button>
-        <span class="breadcrumb">Portfolio <span>/</span> Dashboard</span>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">
-          <span id="themeIcon">☀</span>
-          <span id="themeText">Light mode</span>
-        </button>
-      </header>
- 
-      <!-- Overview -->
-      <section class="section overview" id="overview">
-        <div class="welcome reveal">
-          <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-          <h1>
-            Hi, I'm
-            <span class="typing-name" id="typingName"><span id="nameText">John Patrick</span></span>
-            <span class="cursor">|</span>
-          </h1>
- 
-          <h2>BSIS Student <span class="muted">·</span> Aspiring Software Developer</h2>
-          <p class="intro">
-            I am learning to turn ideas into useful digital experiences.
-            This is where I document my skills, goals, and programming journey.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">Explore Projects ↗</a>
-            <a class="button secondary" href="#about">About Me</a>
-          </div>
-        </div>
- 
-        <!-- Draggable ZPPSU ID on a lanyard -->
-        <div class="zid-slot">
-          <div class="zid-lanyard" id="zid-lanyard">
-            <svg aria-hidden="true">
-              <defs>
-                <linearGradient id="zid-gradL" gradientUnits="userSpaceOnUse" x1="0" y1="-20" x2="0" y2="300">
-                  <stop offset="0" stop-color="#8a1230"/><stop offset=".25" stop-color="#7a0f2a"/>
-                  <stop offset=".45" stop-color="#b3115a"/><stop offset=".72" stop-color="#c2206e"/>
-                  <stop offset=".93" stop-color="#5b1463"/><stop offset="1" stop-color="#3d0f4a"/>
-                </linearGradient>
-                <linearGradient id="zid-gradR" gradientUnits="userSpaceOnUse" x1="0" y1="-20" x2="0" y2="300">
-                  <stop offset="0" stop-color="#5c0d26"/><stop offset=".5" stop-color="#6e1232"/><stop offset="1" stop-color="#3f0a24"/>
-                </linearGradient>
-                <g id="zid-stripes" stroke="#f2c58f" stroke-width="3.2" stroke-linecap="butt">
-                  <line x1="-9" y1="33" x2="9" y2="23"/><line x1="-9" y1="45" x2="9" y2="35"/>
-                  <line x1="-9" y1="57" x2="9" y2="47"/><line x1="-9" y1="69" x2="9" y2="59"/>
-                  <text x="0" y="81" text-anchor="middle" font-size="9" fill="#ff9db3" fill-opacity=".6" stroke="none">❦</text>
-                </g>
-                <g id="zid-chev" fill="none" stroke="#f2c58f" stroke-width="3.2" stroke-linejoin="miter">
-                  <polyline points="-9,-46 0,-37 9,-46"/><polyline points="-9,-36 0,-27 9,-36"/><polyline points="-9,-26 0,-17 9,-26"/>
-                </g>
-                <path id="zid-tL" fill="none"/><path id="zid-tR" fill="none"/>
-              </defs>
-
-              <path id="zid-edgeL" class="zid-band" stroke="#140508" stroke-width="23"/><path id="zid-edgeR" class="zid-band" stroke="#140508" stroke-width="23"/>
-              <path id="zid-peachL" class="zid-band" stroke="#f0b878" stroke-width="21"/><path id="zid-peachR" class="zid-band" stroke="#f0b878" stroke-width="21"/>
-              <path id="zid-strapL" class="zid-band" stroke="url(#zid-gradL)" stroke-width="18"/><path id="zid-strapR" class="zid-band" stroke="url(#zid-gradR)" stroke-width="18"/>
-
-              <g id="zid-topL"><use href="#zid-stripes"/></g><g id="zid-topR"><use href="#zid-stripes"/></g>
-              <g id="zid-botL"><use href="#zid-chev"/></g><g id="zid-botR"><use href="#zid-chev"/></g>
-
-              <text class="zid-t-left" dy="3.5"><textPath href="#zid-tL" startOffset="52" textLength="175" lengthAdjust="spacingAndGlyphs">Zamboanga Peninsula Polytechnic State University</textPath></text>
-              <text dy="4.5"><textPath href="#zid-tR" startOffset="52"><tspan class="zid-t-big">ZPPSU</tspan><tspan class="zid-t-small" dx="8">THE UNIVERSITY</tspan></textPath></text>
-            </svg>
-
-            <div class="zid-id" id="zid-id" tabindex="0" role="img" aria-label="Draggable ID card for John Patrick Eugenio">
-              <div class="zid-clip"></div>
-              <div class="zid-face">
-                <div class="zid-school">
-                  <img src="zppsu-logo.png" alt="ZPPSU logo" onerror="this.outerHTML='<span class=zid-logo-fallback></span>'">
-                  <div><b>ZPPSU</b><small>Zamboanga Peninsula<br>Polytechnic State University</small></div>
-                </div>
-                <div class="zid-media">
-  <img class="zid-photo" src="photo.jpg" alt="John Patrick Eugenio" draggable="false"
-       onerror="this.parentElement.style.display='none';this.parentElement.nextElementSibling.style.display='grid'">
-  <video class="zid-photo zid-video" id="zidVideo" src="Gallery/id.vidieo.mp4.mp4" muted playsinline preload="auto" draggable="false"></video>
-</div> 
-                <div class="zid-photo-ph">JP<span>.</span></div>
-                <img class="zid-mark" src="zppsu-logo.png" alt="" draggable="false">
-                <p class="zid-name">John Patrick Eugenio</p>
-                <p class="zid-role">Aspiring Software Developer</p>
-                <div class="zid-meta"><span>Ur Future Developer</span><div class="zid-barcode"></div></div>
-                <div class="zid-stripe"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
- 
-
-      <!-- About -->
-      <section class="section content-section reveal" id="about">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">GET TO KNOW ME</p>
-            <h2>About Me<span class="period">.</span></h2>
-          </div>
-          <span class="section-number">01 / ABOUT</span>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-copy panel">
-            <h3>Learning today. Building tomorrow.</h3>
-            <p>
-              I am a first-year Bachelor of Science in Information Systems
-              student at Zamboanga Peninsula Polytechnic State University.
-            </p>
-            <p>
-             I am currently learning C++ programming and web development. Although I am a
-             slow learner, I enjoy learning new things. It makes me happy whenever i learn something
-             new because i feel like i have achieved something.<br> I love what i am doing,
-             and i hope that one day i will not regret choosing this path. I will continue to
-             practice,learn new concepts and improve my skills through small projects.
-            </p>
-            <p>
-              My goal is to become a software developer because I want to create websites and develop
-              technology that can help people in their everyday lives. I also want to build useful websites 
-              that can make people's lives easier.<br> One of my biggest dreams is to become successful so I can repay my mother's sacrifices
-              and help my siblings. I want to achieve my goals so badly that I don't have excuses to stop dreaming about them. InshaAllah, I will achieve
-              them one day. I just need to stay consistent, keep learning, and never let my dreams die.
-            </p>
-          </div>
-
-          <div class="details panel">
-            <h3>Personal Details</h3>
-            <div class="detail-row">
-              <span>Name</span>
-              <strong>John Patrick Eugenio</strong>
-            </div>
-            <div class="detail-row">
-              <span>Course</span>
-              <strong>BSIS 1A</strong>
-            </div>
-            <div class="detail-row">
-              <span>University</span>
-              <strong>ZPPSU</strong>
-            </div>
-            <div class="detail-row">
-              <span>Current language</span>
-              <strong>C++</strong>
-            </div>
-            <div class="detail-row">
-              <span>Career goal</span>
-              <strong>Software Developer</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- GitHub Contributions Card -->
-      <section class="ghx-wrap reveal" aria-label="GitHub activity">
-        <div class="ghx-card" id="github">
-          <header class="ghx-head">
-            <div class="ghx-user">
-              <img class="ghx-avatar" src="https://github.com/jpatrickeugenio.png" alt="GitHub profile picture" loading="lazy">
-              <div>
-                <h3>GitHub Activity</h3>
-                <a href="https://github.com/jpatrickeugenio" target="_blank" rel="noopener noreferrer">@jpatrickeugenio</a>
-              </div>
-            </div>
-            <a class="ghx-btn" href="https://github.com/jpatrickeugenio" target="_blank" rel="noopener noreferrer">View Profile <span aria-hidden="true">↗</span></a>
-          </header>
-
-          <div class="ghx-scroll" aria-label="GitHub contribution calendar for jpatrickeugenio">
-            <div class="ghx-grid" id="ghx-grid"></div>
-          </div>
-
-          <footer class="ghx-foot">
-            <p>Every contribution is another step in my developer journey.</p>
-            <div class="ghx-legend" aria-hidden="true">Less
-              <i style="background:var(--l0)"></i><i style="background:var(--l1)"></i>
-              <i style="background:var(--l2)"></i><i style="background:var(--l3)"></i>
-              <i style="background:var(--l4)"></i> More
-            </div>
-          </footer>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section class="section content-section reveal" id="skills">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">WHAT I'M LEARNING</p>
-            <h2>Skills & Learning<span class="period">.</span></h2>
-          </div>
-          <span class="section-number">02 / SKILLS</span>
-        </div>
-
-        <div class="mq-marquee" aria-label="My skills">
-          <div class="mq-track">
-            <div class="mq-set">
-              <article class="mq-card panel" style="--brand:#3d8bd8;--p:45%">
-                <div class="mq-head">
-                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2l12 7v14l-12 7L4 23V9z" fill="#00599C"/><text x="16" y="20.5" text-anchor="middle" font-size="11" font-weight="800" font-family="Arial, sans-serif" fill="#fff">C++</text></svg>
-                  <div><h3>C++ Programming</h3><span class="mq-status">LEARNING</span></div>
-                </div>
-                <p>Variables, loops, arrays, and functions.</p>
-                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>45%</b></div>
-              </article>
-
-              <article class="mq-card panel" style="--brand:#f06a3c;--p:25%">
-                <div class="mq-head">
-                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 3h22l-2 22-9 4-9-4z" fill="#E34F26"/><path d="M16 5v22l7.2-3.2L24.8 5z" fill="#EF652A"/><text x="16" y="21" text-anchor="middle" font-size="14" font-weight="800" font-family="Arial, sans-serif" fill="#fff">5</text></svg>
-                  <div><h3>HTML</h3><span class="mq-status">LEARNING</span></div>
-                </div>
-                <p>Structuring web pages and content.</p>
-                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>25%</b></div>
-              </article>
-
-              <article class="mq-card panel" style="--brand:#2d9be0;--p:20%">
-                <div class="mq-head">
-                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 3h22l-2 22-9 4-9-4z" fill="#1572B6"/><path d="M16 5v22l7.2-3.2L24.8 5z" fill="#33A9DC"/><text x="16" y="21" text-anchor="middle" font-size="14" font-weight="800" font-family="Arial, sans-serif" fill="#fff">3</text></svg>
-                  <div><h3>CSS</h3><span class="mq-status">LEARNING</span></div>
-                </div>
-                <p>Layouts, colors, and animation.</p>
-                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>20%</b></div>
-              </article>
-
-              <article class="mq-card panel" style="--brand:#f7df1e;--p:10%">
-                <div class="mq-head">
-                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="3" fill="#F7DF1E"/><text x="27" y="26" text-anchor="end" font-size="13" font-weight="800" font-family="Arial, sans-serif" fill="#000">JS</text></svg>
-                  <div><h3>JavaScript</h3><span class="mq-status">EXPLORING</span></div>
-                </div>
-                <p>Making websites interactive.</p>
-                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>10%</b></div>
-              </article>
-
-              <article class="mq-card panel" style="--brand:#f05032;--p:10%">
-                <div class="mq-head">
-                  <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="6.5" y="6.5" width="19" height="19" rx="3" transform="rotate(45 16 16)" fill="#F05032"/><text x="16" y="19.5" text-anchor="middle" font-size="9" font-weight="800" font-family="Arial, sans-serif" fill="#fff">Git</text></svg>
-                  <div><h3>Git & GitHub</h3><span class="mq-status">EXPLORING</span></div>
-                </div>
-                <p>Saving versions and sharing projects.</p>
-                <div class="mq-meter"><div class="mq-seg"><span></span></div><b>10%</b></div>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <p class="note">Progress bars are editable estimates, not formal skill assessments.</p>
-      </section>
- 
-      <!-- Goals & Roadmap -->
-      <section class="section content-section reveal" id="goals">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">MY DIRECTION</p>
-            <h2>Goals & Roadmap<span class="period">.</span></h2>
-            <p class="section-description">Dream it. Plan it. Build it one step at a time.</p>
-          </div>
-          <span class="section-number">03 / GOALS</span>
-        </div>
-
-        <div class="roadmap-grid">
-          <!-- Phase 1 -->
-          <article class="roadmap-card">
-            <span class="phase-badge">Current Focus</span>
-            <h3 class="roadmap-title">Master the Fundamentals</h3>
-            <p class="roadmap-desc">Build strong C++ logic, algorithmic problem-solving skills, and responsive web applications. Consistently practicing core programming techniques helps turn complex code ideas into efficient solutions.</p>
-          </article>
-
-          <!-- Phase 2 -->
-          <article class="roadmap-card">
-            <span class="phase-badge">Next Step</span>
-            <h3 class="roadmap-title">Build Real Projects</h3>
-            <p class="roadmap-desc">Bridge frontend and backend concepts to create functional web tools and application platforms. Turning ideas into real-world code provides hands-on experience with real user workflows.</p>
-          </article>
-
-          <!-- Phase 3 -->
-          <article class="roadmap-card">
-            <span class="phase-badge">Grow My Skills</span>
-            <h3 class="roadmap-title">Learn Full-Stack Development</h3>
-            <p class="roadmap-desc">Master modern web APIs, server-side frameworks, databases, and deployment workflows. Developing complete end-to-end applications ensures both the server logic and user interface work seamlessly together.</p>
-          </article>
-
-          <!-- Phase 4 -->
-          <article class="roadmap-card">
-            <span class="phase-badge">Long-Term Goal</span>
-            <h3 class="roadmap-title">Graduate & Start My Career</h3>
-            <p class="roadmap-desc">Complete my BSIS degree and prepare for a career as a Software Developer or Data Analyst. Achieving this milestone creates a strong foundation for professional growth and continuous learning.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section class="section content-section reveal" id="projects">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">MY PRACTICE WORK</p>
-            <h2>C++ Projects<span class="period">.</span></h2>
-          </div>
-          <span class="section-number">04 / PROJECTS</span>
-        </div>
-        <p class="section-description">Small projects that help me practice programming logic and build confidence.</p>
-
-        <div class="pe-split">
-          <div class="pe-list" id="peList" role="tablist" aria-label="C++ projects"></div>
-          <div id="peDetail" aria-live="polite"></div>
-        </div>
-      </section>
-
-      <!-- Gallery -->
-      <section id="gallery" class="section content-section">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">MOMENTS</p>
-            <h2>My Gallery<span class="period">.</span></h2>
-          </div>
-          <div class="gal-nav">
-            <button class="gal-btn" id="galPrev" type="button" aria-label="Scroll gallery left">←</button>
-            <button class="gal-btn" id="galNext" type="button" aria-label="Scroll gallery right">→</button>
-          </div>
-        </div>
-
-        <div class="gal-strip" id="galStrip" tabindex="0" role="region" aria-label="Photo gallery. Scroll sideways to see more.">
-          <figure class="gal-item" data-n="01" style="--h:330"><img src="gallery/photo1.jpg" alt="My coding setup" draggable="false" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="gal-item" data-n="02" style="--h:210"><img src="gallery/photo2.jpg" alt="School life" draggable="false" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="gal-item" data-n="03" style="--h:160"><img src="gallery/photo3.jpg" alt="First C++ program" draggable="false" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="gal-item" data-n="04" style="--h:30"><img src="gallery/photo4.jpg" alt="With my classmates" draggable="false" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="gal-item" data-n="05" style="--h:270"><img src="gallery/photo5.jpg" alt="Building this portfolio" draggable="false" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="gal-item" data-n="06" style="--h:90"><img src="gallery/photo6.jpg" alt="Late night coding" draggable="false" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="gal-item" data-n="07" style="--h:190"><img src="gallery/photo7.jpg" alt="Campus" draggable="false" loading="lazy" onerror="this.remove()"></figure>
-          <figure class="gal-item" data-n="08" style="--h:0"><img src="gallery/photo8.jpg" alt="Project demo day" draggable="false" loading="lazy" onerror="this.remove()"></figure>
-        </div>
-      </section>
-
-      <!-- Interactive Terminal -->
-      <section class="section content-section reveal" id="terminal">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">COMMAND LINE</p>
-            <h2>Developer Terminal<span class="period">.</span></h2>
-          </div>
-          <span class="section-number">05 / TERMINAL</span>
-        </div>
-
-        <p class="section-description">
-          Explore my portfolio by typing a command below.
+        <p class="il-eyebrow">Welcome to</p>
+        <p class="il-title">my portfolio</p>
+        <div class="il-bar" aria-hidden="true"><span></span></div>
+        <p class="il-label">
+          Loading<span>.</span><span>.</span><span>.</span>
         </p>
-
-        <div class="terminal panel">
-          <div class="terminal-topbar">
-            <div class="terminal-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <span>jp@portfolio: ~</span>
-          </div>
-
-          <div class="terminal-body" id="terminalOutput" aria-live="polite">
-            <p>Welcome to my portfolio terminal!</p>
-            <p>Type <strong>help</strong> to see available commands.</p>
-          </div>
-
-          <form id="terminalForm" class="terminal-input-row">
-            <label for="terminalInput">visitor@portfolio:~$</label>
-            <input
-              id="terminalInput"
-              type="text"
-              placeholder="Type a command..."
-              autocomplete="off"
-              aria-label="Terminal command"
-              maxlength="100"
-            >
-            <button type="submit">Run</button>
-          </form>
-        </div>
-        <p class="note">Tip: Try <code>help</code>, <code>about</code>, <code>skills</code>, or <code>projects</code>.</p>
-      </section>
-
-    
-      <!-- Contact -->
-      <section class="section content-section reveal" id="contact">
-        <div class="contact-panel panel">
-          <p class="eyebrow">LET'S CONNECT</p>
-          <h2>Every expert was once a beginner<span class="period">.</span></h2>
-          <p>
-            I'm learning, building, and working toward becoming
-            a software developer. Send me a message below!
-          </p>
- 
-          <form id="contactForm" class="contact-form">
-            <label for="contactName">Your Name</label>
-            <input
-              type="text"
-              id="contactName"
-              name="name"
-              placeholder="Enter your name"
-              maxlength="100"
-              required
-            >
- 
-            <label for="contactEmail">Your Email</label>
-            <input
-              type="email"
-              id="contactEmail"
-              name="email"
-              placeholder="Enter your email"
-              maxlength="254"
-              required
-            >
- 
-            <label for="contactMessage">Your Message</label>
-            <textarea
-              id="contactMessage"
-              name="message"
-              placeholder="Write your message..."
-              maxlength="5000"
-              rows="5"
-              required
-            ></textarea>
- 
-            <button class="button primary" type="submit" id="sendButton">
-              Send Message
-            </button>
- 
-            <p id="formStatus" role="status" aria-live="polite"></p>
-          </form>
- 
-          <a
-            class="button secondary"
-            href="https://github.com/jpatrickeugenio"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Visit My GitHub ↗
-          </a>
-        </div>
-      </section>
- 
-      <footer class="footer">
-        <span>© <span id="year"></span> John Patrick Eugenio</span>
-        <span>Designed with purpose. Built while learning.</span>
-      </footer>
-    </main>
-  </div>
- 
-  <!-- Project details modal -->
-  <div class="modal" id="projectModal" aria-hidden="true">
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose" aria-label="Close project details">×</button>
-      <p class="eyebrow">PROJECT DETAILS</p>
-      <h2 id="modalTitle">Project name</h2>
-      <p id="modalDescription"></p>
-      <div class="tags" id="modalTags"></div>
+      </div>
     </div>
-  </div>
- 
-<script>
-(() => {
-  const loader = document.getElementById("loader");
-  if (!loader) return;
 
-  let opened = false;
+    <div class="app">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <a href="#overview" class="brand">Portfolio<span>.</span></a>
+        <p class="side-label">WORKSPACE</p>
 
-  function openWebsite() {
-    if (opened) return;
-    opened = true;
+        <nav class="navigation">
+          <a href="#gallery" class="nav-link"><span>↗</span> Gallery</a>
+          <a href="#terminal" class="nav-link"><span>⌘</span> Terminal</a>
+          <a href="#overview" class="nav-link active"
+            ><span>⌂</span> Overview</a
+          >
+          <a href="#about" class="nav-link"><span>◉</span> About Me</a>
+          <a href="#skills" class="nav-link"><span>▤</span> Skills</a>
+          <a href="#goals" class="nav-link"><span>↗</span> Goals</a>
+          <a href="#projects" class="nav-link"><span>▣</span> Projects</a>
+          <a href="#contact" class="nav-link"><span>✉</span> Contac
+            t</a>
+        </nav>
 
-    loader.classList.add("is-hidden");
-    document.body.classList.remove("site-loading");
-    document.body.classList.add("site-loaded");
-  }
+        <div class="sidebar-bottom">
+          <div class="status-dot"></div>
+          <div>
+            <strong>Learning in progress</strong>
+            <small>Building one project at a time.</small>
+          </div>
+        </div>
+      </aside>
+      <div class="sidebar-backdrop" aria-hidden="true"></div>
 
-  document.addEventListener("animationend", function (event) {
-    if (event.animationName === "il-fill") {
-      openWebsite();
-    }
-  }, true);
+      <main class="main">
+        <!-- Top navigation -->
+        <header class="topbar">
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="sidebar"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+          <span class="breadcrumb">Portfolio <span>/</span> Dashboard</span>
+          <button
+            class="theme-toggle light-switch"
+            id="themeToggle"
+            aria-label="Toggle light and dark mode"
+            aria-pressed="false"
+            type="button"
+          >
+            <span class="switch-plate" aria-hidden="true">
+              <span class="switch-lever"></span>
+            </span>
+          </button>
+        </header>
 
-  window.addEventListener("load", function () {
-    setTimeout(openWebsite, 3500);
-  }, { once: true });
+        <!-- Overview -->
+        <section class="section overview" id="overview">
+          <div class="welcome reveal">
+            <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+            <h1>
+              Hi, I'm
+              <span class="typing-name" id="typingName"
+                ><span id="nameText">John Patrick</span></span
+              >
+              <span class="cursor">|</span>
+            </h1>
 
-  setTimeout(openWebsite, 6500);
-})();
-</script>
+            <h2>
+              BSIS Student <span class="muted">·</span> Aspiring Software
+              Developer
+            </h2>
+            <p class="intro">
+              I am learning to turn ideas into useful digital experiences. This
+              is where I document my skills, goals, and programming journey.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#projects">Explore Projects ↗</a>
+              <a class="button secondary" href="#about">About Me</a>
+              <button
+                class="button secondary resume-button"
+                id="resumeButton"
+                type="button"
+                aria-disabled="true"
+                title="Resume coming soon"
+              >
+                <span aria-hidden="true">🔒</span> Resume
+              </button>
+            </div>
+          </div>
 
-</body>
+          <!-- Draggable ZPPSU ID on a lanyard -->
+          <div class="zid-slot">
+            <div class="zid-lanyard" id="zid-lanyard">
+              <svg aria-hidden="true">
+                <defs>
+                  <linearGradient
+                    id="zid-gradL"
+                    gradientUnits="userSpaceOnUse"
+                    x1="0"
+                    y1="-20"
+                    x2="0"
+                    y2="300"
+                  >
+                    <stop offset="0" stop-color="#8a1230" />
+                    <stop offset=".25" stop-color="#7a0f2a" />
+                    <stop offset=".45" stop-color="#b3115a" />
+                    <stop offset=".72" stop-color="#c2206e" />
+                    <stop offset=".93" stop-color="#5b1463" />
+                    <stop offset="1" stop-color="#3d0f4a" />
+                  </linearGradient>
+                  <linearGradient
+                    id="zid-gradR"
+                    gradientUnits="userSpaceOnUse"
+                    x1="0"
+                    y1="-20"
+                    x2="0"
+                    y2="300"
+                  >
+                    <stop offset="0" stop-color="#5c0d26" />
+                    <stop offset=".5" stop-color="#6e1232" />
+                    <stop offset="1" stop-color="#3f0a24" />
+                  </linearGradient>
+                  <g
+                    id="zid-stripes"
+                    stroke="#f2c58f"
+                    stroke-width="3.2"
+                    stroke-linecap="butt"
+                  >
+                    <line x1="-9" y1="33" x2="9" y2="23" />
+                    <line x1="-9" y1="45" x2="9" y2="35" />
+                    <line x1="-9" y1="57" x2="9" y2="47" />
+                    <line x1="-9" y1="69" x2="9" y2="59" />
+                    <text
+                      x="0"
+                      y="81"
+                      text-anchor="middle"
+                      font-size="9"
+                      fill="#ff9db3"
+                      fill-opacity=".6"
+                      stroke="none"
+                    >
+                      ❦
+                    </text>
+                  </g>
+                  <g
+                    id="zid-chev"
+                    fill="none"
+                    stroke="#f2c58f"
+                    stroke-width="3.2"
+                    stroke-linejoin="miter"
+                  >
+                    <polyline points="-9,-46 0,-37 9,-46" />
+                    <polyline points="-9,-36 0,-27 9,-36" />
+                    <polyline points="-9,-26 0,-17 9,-26" />
+                  </g>
+                  <path id="zid-tL" fill="none" />
+                  <path id="zid-tR" fill="none" />
+                </defs>
+
+                <path
+                  id="zid-edgeL"
+                  class="zid-band"
+                  stroke="#140508"
+                  stroke-width="23"
+                />
+                <path
+                  id="zid-edgeR"
+                  class="zid-band"
+                  stroke="#140508"
+                  stroke-width="23"
+                />
+                <path
+                  id="zid-peachL"
+                  class="zid-band"
+                  stroke="#f0b878"
+                  stroke-width="21"
+                />
+                <path
+                  id="zid-peachR"
+                  class="zid-band"
+                  stroke="#f0b878"
+                  stroke-width="21"
+                />
+                <path
+                  id="zid-strapL"
+                  class="zid-band"
+                  stroke="url(#zid-gradL)"
+                  stroke-width="18"
+                />
+                <path
+                  id="zid-strapR"
+                  class="zid-band"
+                  stroke="url(#zid-gradR)"
+                  stroke-width="18"
+                />
+
+                <g id="zid-topL"><use href="#zid-stripes" /></g>
+                <g id="zid-topR"><use href="#zid-stripes" /></g>
+                <g id="zid-botL"><use href="#zid-chev" /></g>
+                <g id="zid-botR"><use href="#zid-chev" /></g>
+
+                <text class="zid-t-left" dy="3.5">
+                  <textPath
+                    href="#zid-tL"
+                    startOffset="52"
+                    textLength="175"
+                    lengthAdjust="spacingAndGlyphs"
+                  >
+                    Zamboanga Peninsula Polytechnic State University
+                  </textPath>
+                </text>
+                <text dy="4.5">
+                  <textPath href="#zid-tR" startOffset="52">
+                    <tspan class="zid-t-big">ZPPSU</tspan>
+                    <tspan class="zid-t-small" dx="8">THE UNIVERSITY</tspan>
+                  </textPath>
+                </text>
+              </svg>
+
+              <div
+                class="zid-id"
+                id="zid-id"
+                tabindex="0"
+                role="img"
+                aria-label="Draggable ID card for John Patrick Eugenio"
+              >
+                <div class="zid-clip"></div>
+                <div class="zid-face">
+                  <div class="zid-school">
+                    <img
+                      src="zppsu-logo.png"
+                      alt="ZPPSU logo"
+                      onerror="
+                        this.outerHTML = '<span class=zid-logo-fallback></span>'
+                      "
+                    />
+                    <div>
+                      <b>ZPPSU</b
+                      ><small
+                        >Zamboanga Peninsula<br />Polytechnic State
+                        University</small
+                      >
+                    </div>
+                  </div>
+                  <div class="zid-media">
+                    <img
+                      class="zid-photo"
+                      src="photo.jpg"
+                      alt="John Patrick Eugenio"
+                      draggable="false"
+                      onerror="
+                        this.parentElement.style.display = 'none';
+                        this.parentElement.nextElementSibling.style.display =
+                          'grid';
+                      "
+                    />
+                    <video
+                      class="zid-photo zid-video"
+                      id="zidVideo"
+                      src="Gallery/id.vidieo.mp4.mp4"
+                      muted
+                      playsinline
+                      preload="auto"
+                      draggable="false"
+                    ></video>
+                  </div>
+                  <div class="zid-photo-ph">JP<span>.</span></div>
+                  <img
+                    class="zid-mark"
+                    src="zppsu-logo.png"
+                    alt=""
+                    draggable="false"
+                  />
+                  <p class="zid-name">John Patrick Eugenio</p>
+                  <p class="zid-role">Aspiring Software Developer</p>
+                  <div class="zid-meta">
+                    <span>Ur Future Developer</span>
+                    <div class="zid-barcode"></div>
+                  </div>
+                  <div class="zid-stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About -->
+        <section class="section content-section reveal" id="about">
+          <div class="section-heading">
+            <div>
+              <h2>About Me<span class="period">.</span></h2>
+            </div>
+            <span class="section-number">01 / ABOUT</span>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-copy panel">
+              <h3>Learning today. Building tomorrow.</h3>
+              <p>
+                I am a first-year Bachelor of Science in Information Systems
+                student at Zamboanga Peninsula Polytechnic State University.
+              </p>
+              <p>
+                I am currently learning C++ programming and web development.
+                Although I am a slow learner, I enjoy learning new things. It
+                makes me happy whenever i learn something new because i feel
+                like i have achieved something.<br />
+                I love what i am doing, and i hope that one day i will not
+                regret choosing this path. I will continue to practice,learn new
+                concepts and improve my skills through small projects.
+              </p>
+              <p>
+                My goal is to become a software developer because I want to
+                create websites and develop technology that can help people in
+                their everyday lives. I also want to build useful websites that
+                can make people's lives easier.<br />
+                One of my biggest dreams is to become successful so I can repay
+                my mother's sacrifices and help my siblings. I want to achieve
+                my goals so badly that I don't have excuses to stop dreaming
+                about them. InshaAllah, I will achieve them one day. I just need
+                to stay consistent, keep learning, and never let my dreams die.
+              </p>
+            </div>
+
+            <div class="details panel">
+              <h3>Personal Details</h3>
+              <div class="detail-row">
+                <span>Name</span>
+                <strong>John Patrick Eugenio</strong>
+              </div>
+              <div class="detail-row">
+                <span>Course</span>
+                <strong>Bachelor Of Science Infosys</strong>
+              </div>
+              <div class="detail-row">
+                <span>University</span>
+                <strong>ZPPSU</strong>
+              </div>
+              <div class="detail-row">
+                <span>Current language</span>
+                <strong>C++</strong>
+              </div>
+              <div class="detail-row">
+                <span>Career goal</span>
+                <strong>Software Developer</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- GitHub Contributions Card -->
+        <section class="ghx-wrap reveal" aria-label="GitHub activity">
+          <div class="ghx-card" id="github">
+            <header class="ghx-head">
+              <div class="ghx-user">
+                <img
+                  class="ghx-avatar"
+                  src="https://github.com/jpatrickeugenio.png"
+                  alt="GitHub profile picture"
+                  loading="lazy"
+                />
+                <div>
+                  <h3>GitHub Activity</h3>
+                  <a
+                    href="https://github.com/jpatrickeugenio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >@jpatrickeugenio</a
+                  >
+                </div>
+              </div>
+              <a
+                class="ghx-btn"
+                href="https://github.com/jpatrickeugenio"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Profile <span aria-hidden="true">↗</span></a
+              >
+            </header>
+
+            <div
+              class="ghx-scroll"
+              aria-label="GitHub contribution calendar for jpatrickeugenio"
+            >
+              <div class="ghx-grid" id="ghx-grid"></div>
+            </div>
+
+            <footer class="ghx-foot">
+              <p>Every contribution is another step in my developer journey.</p>
+              <div class="ghx-legend" aria-hidden="true">
+                Less <i style="background: var(--l0)"></i
+                ><i style="background: var(--l1)"></i>
+                <i style="background: var(--l2)"></i
+                ><i style="background: var(--l3)"></i>
+                <i style="background: var(--l4)"></i> More
+              </div>
+            </footer>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section content-section reveal" id="skills">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">WHAT I'M LEARNING</p>
+              <h2>Skills & Learning<span class="period">.</span></h2>
+            </div>
+            <span class="section-number">02 / SKILLS</span>
+          </div>
+
+          <div class="mq-marquee" aria-label="My skills">
+            <div class="mq-track">
+              <div class="mq-set">
+                <article
+                  class="mq-card panel"
+                  style="--brand: #3d8bd8; --p: 45%"
+                >
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <path d="M16 2l12 7v14l-12 7L4 23V9z" fill="#00599C" />
+                      <text
+                        x="16"
+                        y="20.5"
+                        text-anchor="middle"
+                        font-size="11"
+                        font-weight="800"
+                        font-family="Arial, sans-serif"
+                        fill="#fff"
+                      >
+                        C++
+                      </text>
+                    </svg>
+                    <div>
+                      <h3>C++ Programming</h3>
+                      <span class="mq-status">LEARNING</span>
+                    </div>
+                  </div>
+                  <p>Variables, loops, arrays, and functions.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>45%</b>
+                  </div>
+                </article>
+
+                <article
+                  class="mq-card panel"
+                  style="--brand: #f06a3c; --p: 25%"
+                >
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <path d="M5 3h22l-2 22-9 4-9-4z" fill="#E34F26" />
+                      <path d="M16 5v22l7.2-3.2L24.8 5z" fill="#EF652A" />
+                      <text
+                        x="16"
+                        y="21"
+                        text-anchor="middle"
+                        font-size="14"
+                        font-weight="800"
+                        font-family="Arial, sans-serif"
+                        fill="#fff"
+                      >
+                        5
+                      </text>
+                    </svg>
+                    <div>
+                      <h3>HTML</h3>
+                      <span class="mq-status">LEARNING</span>
+                    </div>
+                  </div>
+                  <p>Structuring web pages and content.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>25%</b>
+                  </div>
+                </article>
+
+                <article
+                  class="mq-card panel"
+                  style="--brand: #2d9be0; --p: 20%"
+                >
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <path d="M5 3h22l-2 22-9 4-9-4z" fill="#1572B6" />
+                      <path d="M16 5v22l7.2-3.2L24.8 5z" fill="#33A9DC" />
+                      <text
+                        x="16"
+                        y="21"
+                        text-anchor="middle"
+                        font-size="14"
+                        font-weight="800"
+                        font-family="Arial, sans-serif"
+                        fill="#fff"
+                      >
+                        3
+                      </text>
+                    </svg>
+                    <div>
+                      <h3>CSS</h3>
+                      <span class="mq-status">LEARNING</span>
+                    </div>
+                  </div>
+                  <p>Layouts, colors, and animation.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>20%</b>
+                  </div>
+                </article>
+
+                <article
+                  class="mq-card panel"
+                  style="--brand: #f7df1e; --p: 10%"
+                >
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <rect
+                        x="3"
+                        y="3"
+                        width="26"
+                        height="26"
+                        rx="3"
+                        fill="#F7DF1E"
+                      />
+                      <text
+                        x="27"
+                        y="26"
+                        text-anchor="end"
+                        font-size="13"
+                        font-weight="800"
+                        font-family="Arial, sans-serif"
+                        fill="#000"
+                      >
+                        JS
+                      </text>
+                    </svg>
+                    <div>
+                      <h3>JavaScript</h3>
+                      <span class="mq-status">EXPLORING</span>
+                    </div>
+                  </div>
+                  <p>Making websites interactive.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>10%</b>
+                  </div>
+                </article>
+
+                <article
+                  class="mq-card panel"
+                  style="--brand: #f05032; --p: 10%"
+                >
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <rect
+                        x="6.5"
+                        y="6.5"
+                        width="19"
+                        height="19"
+                        rx="3"
+                        transform="rotate(45 16 16)"
+                        fill="#F05032"
+                      />
+                      <text
+                        x="16"
+                        y="19.5"
+                        text-anchor="middle"
+                        font-size="9"
+                        font-weight="800"
+                        font-family="Arial, sans-serif"
+                        fill="#fff"
+                      >
+                        Git
+                      </text>
+                    </svg>
+                    <div>
+                      <h3>Git & GitHub</h3>
+                      <span class="mq-status">EXPLORING</span>
+                    </div>
+                  </div>
+                  <p>Saving versions and sharing projects.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>10%</b>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <p class="note">
+            Progress bars are editable estimates, not formal skill assessments.
+          </p>
+        </section>
+
+       <!-- Goals & Roadmap -->
+        <section class="section content-section reveal" id="goals">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">MY DIRECTION</p>
+              <h2>Goals &amp; Roadmap<span class="period">.</span></h2>
+              <p class="section-description">
+                Dream it. Plan it. Build it one step at a time.
+              </p>
+            </div>
+            <span class="section-number">03 / GOALS</span>
+          </div>
+
+          <div class="gr-list" id="grList">
+            <article class="gr-item">
+              <div class="gr-body">
+                <span class="gr-label">Current Focus</span>
+                <h3 class="gr-title">Master the Fundamentals</h3>
+                <p class="gr-desc">Build strong C++ logic, algorithmic problem-solving skills, and responsive web applications. Consistently practicing core programming techniques helps turn complex code ideas into efficient solutions.</p>
+              </div>
+            </article>
+            <article class="gr-item">
+              <div class="gr-body">
+                <span class="gr-label">Next Step</span>
+                <h3 class="gr-title">Build Real Projects</h3>
+                <p class="gr-desc">Bridge frontend and backend concepts to create functional web tools and application platforms. Turning ideas into real-world code provides hands-on experience with real user workflows.</p>
+              </div>
+            </article>
+            <article class="gr-item">
+              <div class="gr-body">
+                <span class="gr-label">Grow My Skills</span>
+                <h3 class="gr-title">Learn Full-Stack Development</h3>
+                <p class="gr-desc">Master modern web APIs, server-side frameworks, databases, and deployment workflows. Developing complete end-to-end applications ensures both the server logic and user interface work seamlessly together.</p>
+              </div>
+            </article>
+            <article class="gr-item">
+              <div class="gr-body">
+                <span class="gr-label">Long-Term Goal</span>
+                <h3 class="gr-title">Graduate &amp; Start My Career</h3>
+                <p class="gr-desc">Complete my BSIS degree and prepare for a career as a Software Developer or Data Analyst. Achieving this milestone creates a strong foundation for professional growth and continuous learning.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section content-section reveal" id="projects">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">MY PRACTICE WORK</p>
+              <h2>C++ Projects<span class="period">.</span></h2>
+            </div>
+            <span class="section-number">04 / PROJECTS</span>
+          </div>
+          <p class="section-description">
+            Small projects that help me practice programming logic and build
+            confidence.
+          </p>
+
+          <div class="pe-split">
+            <div
+              class="pe-list"
+              id="peList"
+              role="tablist"
+              aria-label="C++ projects"
+            ></div>
+            <div id="peDetail" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" class="section content-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">MOMENTS</p>
+              <h2>My Gallery<span class="period">.</span></h2>
+            </div>
+            <div class="gal-nav">
+              <button
+                class="gal-btn"
+                id="galPrev"
+                type="button"
+                aria-label="Scroll gallery left"
+              >
+                ←
+              </button>
+              <button
+                class="gal-btn"
+                id="galNext"
+                type="button"
+                aria-label="Scroll gallery right"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="gal-strip"
+            id="galStrip"
+            tabindex="0"
+            role="region"
+            aria-label="Photo gallery. Scroll sideways to see more."
+          >
+            <figure class="gal-item" data-n="01" style="--h: 330">
+              <img
+                src="gallery/photo1.jpg"
+                alt="My coding setup"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="02" style="--h: 210">
+              <img
+                src="gallery/photo2.jpg"
+                alt="School life"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="03" style="--h: 160">
+              <img
+                src="gallery/photo3.jpg"
+                alt="First C++ program"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="04" style="--h: 30">
+              <img
+                src="gallery/photo4.jpg"
+                alt="With my classmates"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="05" style="--h: 270">
+              <img
+                src="gallery/photo5.jpg"
+                alt="Building this portfolio"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="06" style="--h: 90">
+              <img
+                src="gallery/photo6.jpg"
+                alt="Late night coding"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="07" style="--h: 190">
+              <img
+                src="gallery/photo7.jpg"
+                alt="Campus"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="08" style="--h: 0">
+              <img
+                src="gallery/photo8.jpg"
+                alt="Project demo day"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <!-- Interactive Terminal -->
+        <section class="section content-section reveal" id="terminal">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">COMMAND LINE</p>
+              <h2>Developer Terminal<span class="period">.</span></h2>
+            </div>
+            <span class="section-number">05 / TERMINAL</span>
+          </div>
+
+          <p class="section-description">
+            Explore my portfolio by typing a command below.
+          </p>
+
+          <div class="terminal panel">
+            <div class="terminal-topbar">
+              <div class="terminal-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span>jp@portfolio: ~</span>
+            </div>
+
+            <div class="terminal-body" id="terminalOutput" aria-live="polite">
+              <p>Welcome to my portfolio terminal!</p>
+              <p>Type <strong>help</strong> to see available commands.</p>
+            </div>
+
+            <form id="terminalForm" class="terminal-input-row">
+              <label for="terminalInput">visitor@portfolio:~$</label>
+              <input
+                id="terminalInput"
+                type="text"
+                placeholder="Type a command..."
+                autocomplete="off"
+                aria-label="Terminal command"
+                maxlength="100"
+              />
+              <button type="submit">Run</button>
+            </form>
+          </div>
+          <p class="note">
+            Tip: Try <code>help</code>, <code>about</code>, <code>skills</code>,
+            or <code>projects</code>.
+          </p>
+        </section>
+
+        <!-- Contact -->
+        <section class="section content-section reveal" id="contact">
+          <div class="contact-panel panel">
+            <h2>
+              Every expert was once a beginner<span class="period">.</span>
+            </h2>
+            <p>
+              I'm learning, building, and working toward becoming a software
+              developer. Send me a message below!
+            </p>
+
+            <form id="contactForm" class="contact-form">
+              <label for="contactName">Your Name</label>
+              <input
+                type="text"
+                id="contactName"
+                name="name"
+                placeholder="Enter your name"
+                maxlength="100"
+                required
+              />
+
+              <label for="contactEmail">Your Email</label>
+              <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                placeholder="Enter your email"
+                maxlength="254"
+                required
+              />
+
+              <label for="contactMessage">Your Message</label>
+              <textarea
+                id="contactMessage"
+                name="message"
+                placeholder="Write your message..."
+                maxlength="5000"
+                rows="5"
+                required
+              ></textarea>
+
+              <button class="button primary" type="submit" id="sendButton">
+                Send message
+              </button>
+
+              <p id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+
+            <a
+              class="contact-github"
+              href="https://github.com/jpatrickeugenio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <span>© <span id="year"></span> John Patrick Eugenio</span>
+          <span>Designed with purpose. Built while learning.</span>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Project details modal -->
+    <div class="modal" id="projectModal" aria-hidden="true">
+      <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button
+          class="modal-close"
+          id="modalClose"
+          aria-label="Close project details"
+        >
+          ×
+        </button>
+        <p class="eyebrow">PROJECT DETAILS</p>
+        <h2 id="modalTitle">Project name</h2>
+        <p id="modalDescription"></p>
+        <div class="tags" id="modalTags"></div>
+      </div>
+    </div>
+
+    <div class="chatbot" id="chatbot">
+      <section class="chatbot-panel" id="chatbotPanel" aria-hidden="true">
+        <div class="chatbot-header">
+          <div class="chatbot-profile">
+            <span class="chatbot-avatar">
+              <span class="bot-mark" aria-hidden="true"><i></i><i></i></span>
+              <i class="chatbot-online" aria-hidden="true"></i>
+            </span>
+            <div>
+              <strong>Cinder</strong>
+              <span>Ask me anything</span>
+            </div>
+          </div>
+          <button
+            class="chatbot-close"
+            id="chatbotClose"
+            type="button"
+            aria-label="Close chat"
+          >
+            ×
+          </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages" aria-live="polite">
+          <p class="chatbot-message bot">
+            Hi! I’m Cinder. I can help you explore this portfolio.
+          </p>
+        </div>
+        <div class="chatbot-actions" aria-label="Quick questions">
+          <button type="button" data-chat-prompt="Tell me about the projects">
+            Projects
+          </button>
+          <button type="button" data-chat-prompt="What skills are you learning?">
+            Skills
+          </button>
+          <button type="button" data-chat-prompt="How can I contact you?">
+            Contact
+          </button>
+        </div>
+        <form class="chatbot-form" id="chatbotForm">
+          <input
+            id="chatbotInput"
+            type="text"
+            placeholder="Type a message..."
+            aria-label="Message"
+            autocomplete="off"
+          />
+          <button type="submit" aria-label="Send message">↗</button>
+        </form>
+      </section>
+      <button
+        class="chatbot-toggle"
+        id="chatbotToggle"
+        type="button"
+        aria-label="Open chat"
+        aria-expanded="false"
+        aria-controls="chatbotPanel"
+      >
+        <span class="bot-mark bot-mark-large" aria-hidden="true">
+          <i></i><i></i>
+        </span>
+      </button>
+    </div>
+
+    <script>
+      (() => {
+        const loader = document.getElementById("loader");
+        if (!loader) return;
+
+        let opened = false;
+
+        function openWebsite() {
+          if (opened) return;
+          opened = true;
+
+          loader.classList.add("is-hidden");
+          document.body.classList.remove("site-loading");
+          document.body.classList.add("site-loaded");
+        }
+
+        document.addEventListener(
+          "animationend",
+          function (event) {
+            if (event.animationName === "il-fill") {
+              openWebsite();
+            }
+          },
+          true,
+        );
+
+        window.addEventListener(
+          "load",
+          function () {
+            setTimeout(openWebsite, 3500);
+          },
+          { once: true },
+        );
+
+        setTimeout(openWebsite, 6500);
+      })();
+    </script>
+  </body>
 </html>

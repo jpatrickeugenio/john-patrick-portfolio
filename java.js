@@ -34,27 +34,35 @@
     const box = marquee.getBoundingClientRect();
     const hit =
       inside &&
-      x >= box.left && x <= box.right &&
-      y >= box.top && y <= box.bottom;
+      x >= box.left &&
+      x <= box.right &&
+      y >= box.top &&
+      y <= box.bottom;
 
     let card = null;
 
     if (hit) {
-      card = document
-        .elementsFromPoint(x, y)
-        .find((el) => el.classList && el.classList.contains("mq-card")) || null;
+      card =
+        document
+          .elementsFromPoint(x, y)
+          .find((el) => el.classList && el.classList.contains("mq-card")) ||
+        null;
     }
 
     setHover(card);
     frame = hit ? requestAnimationFrame(check) : 0;
   }
 
-  document.addEventListener("mousemove", (event) => {
-    x = event.clientX;
-    y = event.clientY;
-    inside = true;
-    if (!frame) frame = requestAnimationFrame(check);
-  }, { passive: true });
+  document.addEventListener(
+    "mousemove",
+    (event) => {
+      x = event.clientX;
+      y = event.clientY;
+      inside = true;
+      if (!frame) frame = requestAnimationFrame(check);
+    },
+    { passive: true },
+  );
 
   document.addEventListener("mouseleave", () => {
     inside = false;

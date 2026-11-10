@@ -1,6 +1,17 @@
 {
+  "name": "my-backend",
+  "version": "1.0.0",
+  "description": "Portfolio backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "type": "commonjs",
   "dependencies": {
     "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.2",
+    "helmet": "^8.3.0",
     "mongoose": "^9.11.4"
   }
 }

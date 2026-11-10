@@ -1,0 +1,545 @@
+
+/* ---------- Works on every screen size ---------- */
+html {
+  -webkit-text-size-adjust: 100%; /* stops iPhones from inflating text */
+  text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: clip; /* no sideways wobble on phones */
+}
+
+.main {
+  min-width: 0;
+}
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+/* no 300ms tap delay and no grey flash when tapping */
+a,
+button,
+label,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+a,
+button,
+.nav-link {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- GitHub graph on PC: squares fit the card ---------- */
+.ghx-scroll {
+  overflow-x: auto;
+}
+.ghx-grid {
+  width: 100%;
+  min-width: 640px; /* below this the graph scrolls instead of shrinking */
+  max-width: 1000px; /* above this it stops growing, so squares never get huge */
+  margin: 0;
+  grid-template-rows: repeat(7, auto);
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 4px;
+}
+.ghx-grid .cell {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 3px;
+}
+
+/* ---------- Phones and small tablets ---------- */
+@media (max-width: 760px) {
+  .chatbot {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .chatbot-panel {
+    bottom: 88px;
+  }
+
+  /* base text a little smaller (rem-based parts shrink too) */
+  html {
+    font-size: 15px;
+    scroll-padding-top: 70px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .main {
+    padding: 0 16px;
+  }
+
+  .topbar {
+    min-height: 58px;
+  }
+  .breadcrumb {
+    font-size: 11px;
+  }
+  .theme-toggle {
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+  .light-switch {
+    width: 52px;
+    min-width: 52px;
+    padding: 6px 10px;
+  }
+
+  /* spacing between sections */
+  .section {
+    padding-top: 32px;
+  }
+  .content-section {
+    padding-top: 46px;
+  }
+  .section-heading {
+    margin-bottom: 16px;
+  }
+  .section-heading h2 {
+    font-size: 24px;
+    letter-spacing: -1px;
+  }
+  .eyebrow,
+  .side-label {
+    font-size: 10px;
+  }
+  .section-description {
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+
+  /* sidebar menu */
+  .sidebar {
+    width: min(270px, 82vw);
+    padding: 24px 16px;
+  }
+  .brand {
+    font-size: 28px;
+    margin-bottom: 36px;
+  }
+  .nav-link {
+    font-size: 13px;
+    padding: 11px;
+  }
+
+  /* hero */
+  .overview {
+    gap: 8px;
+    padding-top: 28px;
+    padding-bottom: 16px;
+  }
+  /* the hanging ID card swings below its box, so keep room under it
+     and keep the welcome text on top of the card */
+  .welcome {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+  }
+  .welcome h1 {
+    font-size: clamp(28px, 8.5vw, 36px);
+    line-height: 1.15;
+    letter-spacing: -1.2px;
+    white-space: nowrap;
+  }
+  .welcome h2 {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+  .intro {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+  .hero-actions {
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .hero-actions .button {
+    min-height: 36px;
+    padding: 8px 11px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  .resume-button {
+    flex-basis: 100%;
+  }
+
+  /* about */
+  .about-grid {
+    gap: 12px;
+  }
+  #about {
+    padding-top: 36px;
+  }
+  #about .section-heading h2 {
+    font-size: 22px;
+  }
+  #about .section-number {
+    font-size: 10px;
+  }
+  .about-copy,
+  .details {
+    padding: 14px;
+  }
+  .about-copy h3,
+  .details h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .about-copy p {
+    font-size: 11.5px;
+    line-height: 1.65;
+  }
+  .detail-row {
+    font-size: 11px;
+    padding: 8px 0;
+  }
+
+  /* github card */
+  .ghx-card {
+    padding: 12px;
+    border-radius: 14px;
+    animation: none;
+  }
+  .ghx-user h3 {
+    font-size: 0.95rem;
+  }
+  .ghx-user a {
+    font-size: 0.78rem;
+  }
+  .ghx-btn {
+    padding: 7px 13px;
+    font-size: 0.78rem;
+  }
+  .ghx-scroll {
+    margin-top: 10px;
+    padding-bottom: 0;
+    overflow-x: auto;
+  }
+  #ghx-grid {
+    gap: 2px;
+    padding: 4px 1px;
+  }
+  #ghx-grid .ghx-week {
+    grid-template-rows: 12px repeat(7, 9px);
+    gap: 2px;
+  }
+  #ghx-grid .ghx-month {
+    font-size: 8px;
+    line-height: 12px;
+  }
+  #ghx-grid .ghx-week .ghx-cell {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+  }
+  .ghx-foot {
+    font-size: 0.74rem;
+  }
+  .ghx-foot p {
+    flex: 1 1 100%;
+  }
+
+  /* skills row: match the page padding so nothing sticks out */
+  .mq-marquee {
+    margin: -24px -16px;
+    padding: 24px 16px;
+  }
+  .mq-set {
+    gap: 10px;
+    padding-right: 10px;
+  }
+  .mq-card {
+    width: 174px;
+    gap: 8px;
+    padding: 10px;
+  }
+  .mq-head {
+    gap: 9px;
+  }
+  .mq-logo {
+    width: 34px;
+    height: 34px;
+  }
+  .mq-head h3 {
+    font-size: 11.5px;
+  }
+  .mq-status {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+  .mq-card p {
+    font-size: 10px;
+    line-height: 1.45;
+  }
+  .mq-meter {
+    gap: 7px;
+  }
+  .mq-seg {
+    height: 6px;
+  }
+  .mq-meter b {
+    min-width: 28px;
+    font-size: 11px;
+  }
+
+  /* goals & roadmap */
+  .roadmap-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .roadmap-card {
+    padding: 18px;
+    animation: none;
+  }
+  .roadmap-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .roadmap-title {
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+  }
+  .roadmap-desc {
+    font-size: 0.8rem;
+    line-height: 1.65;
+  }
+  .roadmap-card .phase-badge {
+    font-size: 0.62rem;
+    margin-bottom: 10px;
+  }
+
+  /* projects: choices become a swipe row on top, example below */
+  .pe-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .pe-list {
+    position: static;
+    display: flex;
+    gap: 8px;
+    padding-bottom: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  .pe-list::-webkit-scrollbar {
+    display: none;
+  }
+  .pe-item {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    padding: 7px 12px 7px 8px;
+    scroll-snap-align: start;
+  }
+  .pe-item b {
+    display: inline;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .pe-panel {
+    padding: 14px;
+    gap: 12px;
+    animation: none;
+  }
+  .pe-panel h3 {
+    font-size: 16px;
+  }
+  .pe-desc {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  .pe-win pre {
+    padding: 10px 12px;
+    font-size: 11px;
+    line-height: 1.65;
+  }
+  .pe-bar {
+    padding: 7px 10px;
+  }
+  .pe-learn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .pe-learn div {
+    padding: 5px 10px;
+    font-size: 0;
+  } /* hides "Practiced here" */
+  .pe-learn b {
+    display: inline;
+    margin: 0;
+    font-size: 11px;
+  }
+  .tags span {
+    font-size: 10px;
+  }
+
+  /* gallery */
+  #gallery .section-heading h2 {
+    font-size: 24px;
+  }
+  .gal-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .gal-strip {
+    margin: 0 -16px;
+    padding: 16px;
+    gap: 10px;
+  }
+  .gal-item {
+    width: 140px;
+    height: 98px;
+    border-radius: 10px;
+  }
+  /* keep the entrance, drop the endless floating on phones */
+  .gal-strip.in .gal-item {
+    animation: gal-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: calc(var(--i) * 90ms);
+  }
+  .gal-lightbox {
+    padding: 16px;
+  }
+  .gal-lb-close {
+    top: -12px;
+    right: -4px;
+  }
+
+  /* terminal */
+  .terminal-topbar {
+    padding: 11px 14px;
+  }
+  .terminal-body {
+    min-height: 130px;
+    max-height: 240px;
+    padding: 14px;
+    font-size: 12px;
+  }
+  .terminal-input-row {
+    padding: 12px 14px;
+  }
+  .terminal-input-row input {
+    font-size: 16px;
+  } /* 16px stops iPhone zoom-in */
+
+  /* contact */
+  .contact-panel {
+    margin: 0 auto;
+    padding: 20px 16px;
+  }
+  .contact-panel h2 {
+    font-size: 24px;
+    letter-spacing: -1px;
+  }
+  .contact-panel > p:not(.eyebrow) {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  .contact-form {
+    gap: 10px;
+    margin: 18px 0;
+  }
+  .contact-form label {
+    font-size: 0.82rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    font-size: 16px;
+  }
+  .contact-form .button,
+  .contact-panel > a.button {
+    width: 100%;
+  }
+
+  /* footer */
+  .footer {
+    margin-top: 36px;
+    padding: 18px 0;
+    font-size: 11px;
+    text-align: center;
+    align-items: center;
+  }
+
+  /* smoother scrolling on phones: shorter reveals */
+  .reveal {
+    transition-duration: 0.5s;
+  }
+
+  /* Avoid continuous decorative work while scrolling on phones. */
+  .gal-strip.in .gal-item {
+    animation: gal-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: calc(var(--i) * 55ms);
+  }
+  .mq-track {
+    will-change: transform;
+  }
+
+  /* The lanyard already has its own mobile transform scale. */
+  .zid-slot {
+    zoom: 1;
+  }
+}
+
+/* ---------- Small phones ---------- */
+@media (max-width: 400px) {
+  .main {
+    padding: 0 14px;
+  }
+  .welcome h1 {
+    font-size: clamp(24px, 8vw, 27px);
+  }
+  .section-heading h2 {
+    font-size: 22px;
+  }
+  .mq-marquee {
+    margin: -24px -14px;
+    padding: 24px 14px;
+  }
+  .gal-strip {
+    margin: 0 -14px;
+    padding: 16px 14px;
+  }
+}
+
+/* Fallback for mobile browsers without View Transitions. */
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    background: var(--bg);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  body.theme-fallback-switching::after {
+    opacity: 1;
+  }
+}
+
+/* ---------- Touch screens (no mouse): no sticky hover effects ---------- */
+@media (hover: none) {
+  .button:hover,
+  .ghx-btn:hover,
+  .theme-toggle:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .gal-btn:hover:not(:disabled) {
+    transform: none;
+  }
+}

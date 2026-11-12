@@ -142,9 +142,11 @@ button,
   .welcome {
     position: relative;
     z-index: 1;
-    margin-top: 0;
+    margin-top: 18px;
   }
   .welcome h1 {
+    margin-top: 8px;
+    margin-bottom: 10px;
     font-size: clamp(28px, 8.5vw, 36px);
     line-height: 1.15;
     letter-spacing: -1.2px;
@@ -541,5 +543,113 @@ button,
   }
   .gal-btn:hover:not(:disabled) {
     transform: none;
+  }
+}
+
+/* ---------- Compact mobile finish ---------- */
+@media (max-width: 760px) {
+  .section {
+    padding-top: 28px;
+  }
+
+  .content-section {
+    padding-top: 38px;
+  }
+
+  .overview {
+    gap: 4px;
+    padding-top: 20px;
+    padding-bottom: 12px;
+  }
+
+  .zid-slot {
+    min-height: 420px;
+  }
+
+  .zid-lanyard {
+    --zid-scale: 0.68;
+  }
+
+  .welcome h1 {
+    white-space: normal;
+    font-size: clamp(26px, 7.8vw, 34px);
+  }
+
+  .welcome h2 {
+    max-width: 34ch;
+    line-height: 1.5;
+  }
+
+  .intro {
+    max-width: 44ch;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .about-copy p {
+    font-size: 13px;
+  }
+
+  .detail-row {
+    font-size: 12px;
+  }
+
+  .section-description {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .hero-actions .button,
+  .gal-btn {
+    min-height: 44px;
+  }
+
+  .gal-btn {
+    width: 44px;
+  }
+
+  .chatbot-panel {
+    min-height: min(520px, calc(100dvh - 120px));
+    max-height: calc(100dvh - 120px);
+  }
+}
+
+@media (max-width: 400px) {
+  .zid-slot {
+    min-height: 390px;
+  }
+
+  .zid-lanyard {
+    --zid-scale: 0.64;
+  }
+
+  .welcome h1 {
+    font-size: clamp(24px, 7.5vw, 29px);
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .sidebar,
+  .sidebar-backdrop,
+  .nav-link,
+  .button,
+  .menu-toggle,
+  .theme-toggle,
+  .panel,
+  .stat-card,
+  .project-card,
+  .roadmap-card,
+  .pe-item,
+  .pe-panel,
+  .contact-panel,
+  .modal-content,
+  .chatbot-panel,
+  .chatbot-toggle,
+  .gal-btn,
+  .gal-lightbox,
+  .gal-lb-card,
+  .gal-item,
+  .reveal {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
 }

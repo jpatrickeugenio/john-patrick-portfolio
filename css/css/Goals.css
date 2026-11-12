@@ -1,0 +1,51 @@
+.gr-list{--gr-accent:var(--accent,#8ea2ff);position:relative;max-width:760px;padding-left:44px;margin-top:16px}
+.gr-item{position:relative;padding-bottom:48px}
+.gr-item:last-child{padding-bottom:0}
+/* dot */
+.gr-item::before{content:"";position:absolute;left:-44px;top:6px;width:14px;height:14px;box-sizing:border-box;border-radius:50%;border:2px solid color-mix(in srgb,currentColor 30%,transparent);transition:background-color .4s,border-color .4s,transform .4s}
+/* line down to the next dot; fills with the accent colour */
+.gr-item::after{content:"";position:absolute;left:-38px;top:26px;bottom:-2px;width:2px;border-radius:2px;
+  background:linear-gradient(var(--gr-accent),var(--gr-accent)) top/100% 0 no-repeat,color-mix(in srgb,currentColor 15%,transparent);
+  transition:background-size .8s cubic-bezier(.6,.1,.2,1)}
+.gr-item:last-child::after{display:none}
+.gr-item.is-on::before{background:var(--gr-accent);border-color:var(--gr-accent);transform:scale(1.15)}
+.gr-item.is-on::after{background-size:100% 100%,100% 100%}
+.gr-item.is-current::before{box-shadow:0 0 0 0 var(--gr-accent);animation:gr-ping 1.8s ease-out infinite}
+@keyframes gr-ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--gr-accent) 55%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+/* text */
+.gr-body{opacity:.3;transform:translateX(-10px);transition:opacity .6s,transform .6s cubic-bezier(.2,.9,.2,1)}
+.gr-item.is-on .gr-body{opacity:1;transform:none}
+.gr-label{display:block;margin:0 0 6px;font-size:.78rem;letter-spacing:.03em;opacity:.65;transition:color .4s}
+.gr-item.is-on .gr-label{color:var(--gr-accent);opacity:1}
+.gr-title{margin:0 0 8px;font-family:inherit;font-size:1.35rem;line-height:1.25;color:inherit}
+.gr-desc{margin:0;max-width:62ch;font-size:.92rem;line-height:1.65;opacity:.72;color:inherit}
+@media (prefers-reduced-motion:reduce){.gr-body,.gr-item::before,.gr-item::after{transition:none!important}.gr-item.is-current::before{animation:none}}
+
+/* fonts */
+#goals .section-heading h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.03em}
+.gr-title{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.02em}
+.gr-desc{font-family:"DM Sans",sans-serif;font-weight:400}
+.gr-label{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+
+/* scroll animation */
+.gr-item::after{background-size:100% calc(var(--f,0)*100%),100% 100%;transition:none}
+.gr-item.is-on::after{background-size:100% calc(var(--f,0)*100%),100% 100%}
+.gr-item.is-on::before{animation:gr-pop .55s cubic-bezier(.2,.9,.2,1)}
+.gr-item.is-current::before{animation:gr-pop .55s cubic-bezier(.2,.9,.2,1),gr-ping 1.8s .55s ease-out infinite}
+@keyframes gr-pop{0%{transform:scale(.5)}60%{transform:scale(1.6)}100%{transform:scale(1.15)}}
+.gr-label{letter-spacing:.3em;transition:color .4s,letter-spacing .8s cubic-bezier(.2,.9,.2,1)}
+.gr-item.is-on .gr-label{letter-spacing:.08em}
+.gr-title{clip-path:inset(0 100% 0 0);transform:translateX(-14px);transition:clip-path .8s cubic-bezier(.6,.1,.2,1) .08s,transform .8s cubic-bezier(.2,.9,.2,1) .08s}
+.gr-item.is-on .gr-title{clip-path:inset(0 0 0 0);transform:none}
+.gr-desc{opacity:0;transform:translateY(18px);transition:opacity .7s .25s,transform .7s cubic-bezier(.2,.9,.2,1) .25s}
+.gr-item.is-on .gr-desc{opacity:.72;transform:none}
+@media (prefers-reduced-motion:reduce){.gr-label,.gr-title,.gr-desc{transition:none!important}.gr-item.is-on::before{animation:none}}
+
+/* smooth + effects */
+.gr-body{translate:0 var(--py,0px);will-change:translate,opacity}
+.gr-title{transition:clip-path .8s cubic-bezier(.6,.1,.2,1) .08s,transform .8s cubic-bezier(.2,.9,.2,1) .08s,color .3s}
+.gr-item:hover .gr-title{color:var(--gr-accent)}
+.gr-spark{position:absolute;left:2px;top:0;width:10px;height:10px;border-radius:50%;background:var(--gr-accent);
+  box-shadow:0 0 14px 4px color-mix(in srgb,var(--gr-accent) 60%,transparent);opacity:0;transition:opacity .5s;pointer-events:none;z-index:2;will-change:transform}
+.gr-spark::before{content:"";position:absolute;left:3px;bottom:8px;width:4px;height:46px;border-radius:4px;background:linear-gradient(to top,var(--gr-accent),transparent);opacity:.65}
+@media (prefers-reduced-motion:reduce){.gr-spark{display:none}.gr-body{translate:none}}

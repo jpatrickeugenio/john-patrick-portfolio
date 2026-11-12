@@ -9,7 +9,7 @@
     window.clearTimeout(resetTimer);
     resumeButton.innerHTML =
       '<span aria-hidden="true">🔒</span> Resume coming soon';
-    resumeButton.setAttribute("aria-label", "Resume coming soon");
+    resumeButton.setAttribute("aria-label", "Wala pa ako resume");
 
     resetTimer = window.setTimeout(() => {
       resumeButton.innerHTML = originalText;

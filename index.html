@@ -13,6 +13,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/lanyard.css" />
@@ -20,9 +22,10 @@
     <link rel="stylesheet" href="css/idvideo.css" />
     <link rel="stylesheet" href="css/Goals.css" />
     <link rel="stylesheet" href="css/mobile.css" />
-  
+    <link rel="stylesheet" href="css/loader.css" />
 
     <script src="js/lanyard.js" defer></script>
+    <script src="js/loader.js" defer></script>
     <script src="js/java.js" defer></script>
     <script src="js/menu.js" defer></script>
     <script src="js/resume.js" defer></script>
@@ -38,38 +41,39 @@
     <script src="js/Goals.js" defer></script>
   </head>
   <script>
+    
     // Safety net: if the main script crashed, still show the page
     setTimeout(() => {
+      const loader = document.getElementById("loader");
+      if (loader) loader.classList.add("gone");
       document
         .querySelectorAll(".reveal")
         .forEach((el) => el.classList.add("visible"));
-
-      const loader = document.getElementById("loader");
-      if (loader) loader.classList.add("is-hidden");
-
       document.body.classList.remove("site-loading");
-    }, 4000);
+    }, 9000);
   </script>
-  <body>
+  <body class="site-loading">
     <!-- Loading screen -->
-    <div class="intro-loader" id="loader" role="status" aria-label="Loading">
-      <span class="il-deco round il-d1"></span>
-      <span class="il-deco round outline il-d2"></span>
-      <span class="il-deco il-d3"></span>
-      <span class="il-deco il-d4"></span>
-      <span class="il-deco il-d5"></span>
-      <span class="il-deco outline il-d6"></span>
-
-      <div class="il-center">
-        <div class="il-shapes" aria-hidden="true">
-          <span></span><span></span><span></span>
+    <div
+      class="portfolio-intro"
+      id="loader"
+      role="status"
+      aria-label="Loading portfolio"
+    >
+      <div class="intro-ui">
+        <canvas class="intro-stars" id="introStars" aria-hidden="true"></canvas>
+        <span class="intro-corner intro-corner-1" aria-hidden="true"></span>
+        <span class="intro-corner intro-corner-2" aria-hidden="true"></span>
+        <span class="intro-corner intro-corner-3" aria-hidden="true"></span>
+        <span class="intro-corner intro-corner-4" aria-hidden="true"></span>
+        <div class="intro-center">
+          <div class="intro-line intro-eyebrow" id="introEyebrow"></div>
+          <div class="intro-line intro-title" id="introTitle"></div>
+          <div class="intro-track" aria-hidden="true">
+            <div class="intro-fill" id="introFill"></div>
+          </div>
+          <div class="intro-percent" id="introPercent">0%</div>
         </div>
-        <p class="il-eyebrow">Welcome to</p>
-        <p class="il-title">my portfolio</p>
-        <div class="il-bar" aria-hidden="true"><span></span></div>
-        <p class="il-label">
-          Loading<span>.</span><span>.</span><span>.</span>
-        </p>
       </div>
     </div>
 
@@ -81,7 +85,6 @@
 
         <nav class="navigation">
           <a href="#gallery" class="nav-link"><span>↗</span> Gallery</a>
-          <a href="#terminal" class="nav-link"><span>⌘</span> Terminal</a>
           <a href="#overview" class="nav-link active"
             ><span>⌂</span> Overview</a
           >
@@ -847,52 +850,6 @@
           </div>
         </section>
 
-        <!-- Interactive Terminal -->
-        <section class="section content-section reveal" id="terminal">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">COMMAND LINE</p>
-              <h2>Developer Terminal<span class="period">.</span></h2>
-            </div>
-            <span class="section-number">05 / TERMINAL</span>
-          </div>
-
-          <p class="section-description">
-            Explore my portfolio by typing a command below.
-          </p>
-
-          <div class="terminal panel">
-            <div class="terminal-topbar">
-              <div class="terminal-dots">
-                <span></span><span></span><span></span>
-              </div>
-              <span>jp@portfolio: ~</span>
-            </div>
-
-            <div class="terminal-body" id="terminalOutput" aria-live="polite">
-              <p>Welcome to my portfolio terminal!</p>
-              <p>Type <strong>help</strong> to see available commands.</p>
-            </div>
-
-            <form id="terminalForm" class="terminal-input-row">
-              <label for="terminalInput">visitor@portfolio:~$</label>
-              <input
-                id="terminalInput"
-                type="text"
-                placeholder="Type a command..."
-                autocomplete="off"
-                aria-label="Terminal command"
-                maxlength="100"
-              />
-              <button type="submit">Run</button>
-            </form>
-          </div>
-          <p class="note">
-            Tip: Try <code>help</code>, <code>about</code>, <code>skills</code>,
-            or <code>projects</code>.
-          </p>
-        </section>
-
         <!-- Contact -->
         <section class="section content-section reveal" id="contact">
           <div class="contact-panel panel">
@@ -1045,42 +1002,5 @@
       </button>
     </div>
 
-    <script>
-      (() => {
-        const loader = document.getElementById("loader");
-        if (!loader) return;
-
-        let opened = false;
-
-        function openWebsite() {
-          if (opened) return;
-          opened = true;
-
-          loader.classList.add("is-hidden");
-          document.body.classList.remove("site-loading");
-          document.body.classList.add("site-loaded");
-        }
-
-        document.addEventListener(
-          "animationend",
-          function (event) {
-            if (event.animationName === "il-fill") {
-              openWebsite();
-            }
-          },
-          true,
-        );
-
-        window.addEventListener(
-          "load",
-          function () {
-            setTimeout(openWebsite, 3500);
-          },
-          { once: true },
-        );
-
-        setTimeout(openWebsite, 6500);
-      })();
-    </script>
   </body>
 </html>

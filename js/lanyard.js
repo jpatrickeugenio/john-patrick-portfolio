@@ -150,7 +150,7 @@
   if (!reduceMotion) {
     const loader = document.getElementById("loader");
     const done = () =>
-      !loader || /\b(is-hidden|loader-hidden)\b/.test(loader.className);
+      !loader || /\b(gone|is-hidden|loader-hidden)\b/.test(loader.className);
     if (done()) kick(7);
     else
       new MutationObserver((_, o) => {

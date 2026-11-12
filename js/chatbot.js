@@ -39,19 +39,6 @@
         "I’m the portfolio bot. I can guide you around John Patrick Eugenio’s portfolio.",
     },
     {
-      keywords: [
-        "about",
-        "who is john",
-        "who is patrick",
-        "student",
-        "yourself",
-        "profile",
-      ],
-      response:
-        "John Patrick Eugenio is a first-year Bachelor of Science in Information Systems student at ZPPSU. He is learning programming and web development with the goal of becoming a software developer.",
-      section: "about",
-    },
-    {
       keywords: ["skill", "learn", "technology", "language"],
       response:
         "John is currently learning C++, HTML, CSS, JavaScript, and Git/GitHub. C++ is his current focus, while JavaScript and Git/GitHub are areas he is exploring.",
@@ -86,6 +73,19 @@
       response:
         "The Gallery section shows moments from John’s coding and school journey.",
       section: "gallery",
+    },
+    {
+      keywords: [
+        "about",
+        "who is john",
+        "who is patrick",
+        "student",
+        "yourself",
+        "profile",
+      ],
+      response:
+        "John Patrick Eugenio is a first-year Bachelor of Science in Information Systems student at ZPPSU. He is learning programming and web development with the goal of becoming a software developer.",
+      section: "about",
     },
     {
       keywords: ["terminal", "command"],

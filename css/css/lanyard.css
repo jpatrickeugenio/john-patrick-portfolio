@@ -291,7 +291,7 @@
     z-index: 3;
   }
   .zid-lanyard {
-    top: -45px;
+    top: -80px;
   }
   .zid-lanyard svg {
     -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 40px);

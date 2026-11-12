@@ -137,8 +137,7 @@ button,
     padding-top: 28px;
     padding-bottom: 16px;
   }
-  /* the hanging ID card swings below its box, so keep room under it
-     and keep the welcome text on top of the card */
+  /* Keep the welcome text below the raised ID card. */
   .welcome {
     position: relative;
     z-index: 1;

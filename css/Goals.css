@@ -18,13 +18,13 @@
 .gr-label{display:block;margin:0 0 6px;font-size:.78rem;letter-spacing:.03em;opacity:.65;transition:color .4s}
 .gr-item.is-on .gr-label{color:var(--gr-accent);opacity:1}
 .gr-title{margin:0 0 8px;font-family:inherit;font-size:1.35rem;line-height:1.25;color:inherit}
-.gr-desc{margin:0;max-width:62ch;font-size:.92rem;line-height:1.65;opacity:.72;color:inherit}
+.gr-desc{margin:0;max-width:62ch;font-size:12px;line-height:1.75;opacity:.72;color:inherit}
 @media (prefers-reduced-motion:reduce){.gr-body,.gr-item::before,.gr-item::after{transition:none!important}.gr-item.is-current::before{animation:none}}
 
 /* fonts */
 #goals .section-heading h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.03em}
 .gr-title{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.02em}
-.gr-desc{font-family:"DM Sans",sans-serif;font-weight:400}
+.gr-desc{font-family:"Space Mono",monospace;font-weight:400}
 .gr-label{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
 
 /* scroll animation */

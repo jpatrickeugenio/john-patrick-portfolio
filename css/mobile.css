@@ -631,7 +631,7 @@ button,
   }
 
   .chatbot-panel {
-    min-height: min(520px, calc(100dvh - 120px));
+    min-height: min(440px, calc(100dvh - 120px));
     max-height: calc(100dvh - 120px);
   }
 }

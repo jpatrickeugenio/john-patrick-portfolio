@@ -4120,7 +4120,7 @@ html.theme-switching .cursor {
   right: 0;
   bottom: 88px;
   width: min(360px, calc(100vw - 32px));
-  min-height: 520px;
+  min-height: 0;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -4223,8 +4223,8 @@ html.theme-switching .cursor {
   display: grid;
   align-content: start;
   gap: 12px;
-  min-height: 325px;
-  max-height: 325px;
+  min-height: 240px;
+  max-height: 240px;
   padding: 16px;
   overflow-y: auto;
 }

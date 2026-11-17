@@ -6,11 +6,12 @@
   const side = ["L", "R"];
 
   // Tweak these to change the feel
-  const isMobile = window.matchMedia("(max-width: 760px)").matches;
-  const REST_TOP = isMobile ? 205 : 270; // shorter lace on mobile
+  const mobileViewport = window.matchMedia("(max-width: 760px)");
+  let restTop = mobileViewport.matches ? 205 : 270; // shorter lace on mobile
   const STIFFNESS = 0.045; // higher = snaps back faster
   const DAMPING = 0.92; // lower = stops swinging sooner
   const MAX_DRAG = 140; // how far you can pull the card
+  const FRAME_DURATION = 1000 / 60;
 
   const reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
@@ -29,12 +30,14 @@
     lx = 0,
     ly = 0,
     running = false;
+  let lastFrameTime = 0;
 
   function layout() {
     W = box.clientWidth;
     cardW = card.offsetWidth;
+    restTop = mobileViewport.matches ? 205 : 270;
     card.style.left = (W - cardW) / 2 + "px";
-    card.style.top = REST_TOP + "px";
+    card.style.top = restTop + "px";
     draw();
   }
 
@@ -42,7 +45,7 @@
 
   function draw() {
     const cx = W / 2 + x,
-      cy = REST_TOP + y + 12;
+      cy = restTop + y + 12;
     const sag = 40 + Math.abs(x) * 0.15;
     side.forEach((s, i) => {
       const ax = W / 2 + (i ? 60 : -60),
@@ -71,17 +74,24 @@
   function start() {
     if (!running) {
       running = true;
+      lastFrameTime = 0;
       requestAnimationFrame(tick);
     }
   }
-  function tick() {
+  function tick(now) {
+    const frameScale = lastFrameTime
+      ? Math.min((now - lastFrameTime) / FRAME_DURATION, 2.5)
+      : 1;
+    lastFrameTime = now;
+
     if (!drag) {
-      vx += -STIFFNESS * x;
-      vy += -STIFFNESS * y;
-      vx *= DAMPING;
-      vy *= DAMPING;
-      x += vx;
-      y += vy;
+      vx += -STIFFNESS * x * frameScale;
+      vy += -STIFFNESS * y * frameScale;
+      const damping = Math.pow(DAMPING, frameScale);
+      vx *= damping;
+      vy *= damping;
+      x += vx * frameScale;
+      y += vy * frameScale;
       if (Math.abs(x) + Math.abs(y) + Math.abs(vx) + Math.abs(vy) < 0.02) {
         x = y = vx = vy = 0;
         draw();
@@ -92,8 +102,9 @@
     draw();
     requestAnimationFrame(tick);
   }
-  const kick = (n) => {
-    vx += n;
+  const kick = (horizontal, vertical = 0) => {
+    vx += horizontal;
+    vy += vertical;
     start();
   };
 
@@ -146,17 +157,17 @@
   window.addEventListener("resize", layout);
   layout();
 
-  // Give the card one small swing when the welcome loader finishes.
+  // Give the card a small bounce when the welcome loader finishes.
   if (!reduceMotion) {
     const loader = document.getElementById("loader");
     const done = () =>
       !loader || /\b(gone|is-hidden|loader-hidden)\b/.test(loader.className);
-    if (done()) kick(7);
+    if (done()) kick(5, 14);
     else
       new MutationObserver((_, o) => {
         if (done()) {
           o.disconnect();
-          setTimeout(() => kick(7), 250);
+          setTimeout(() => kick(5, 14), 250);
         }
       }).observe(loader, { attributes: true, attributeFilter: ["class"] });
   }

@@ -1,6 +1,6 @@
 /* ZPPSU ID lanyard - every class starts with zid- so it can't clash with style.css */
 
-/* SIZE: change this one number. 1 = full size, 0.8 = 20% smaller, 0.7 = 30% smaller. */
+/* Base size; mobile breakpoints below scale the card to fit smaller screens. */
 :root {
   --zid-scale: 0.85;
 }
@@ -296,6 +296,16 @@
   .zid-lanyard svg {
     -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 40px);
     mask-image: linear-gradient(to bottom, transparent 0, #000 40px);
+  }
+}
+@media (max-width: 400px) {
+  .zid-lanyard {
+    --zid-scale: 0.68;
+  }
+}
+@media (max-width: 360px) {
+  .zid-lanyard {
+    --zid-scale: 0.64;
   }
 }
 @media (max-width: 760px) {

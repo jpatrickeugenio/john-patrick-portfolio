@@ -584,10 +584,6 @@ button,
     min-height: 420px;
   }
 
-  .zid-lanyard {
-    --zid-scale: 0.68;
-  }
-
   .welcome h1 {
     white-space: normal;
     font-size: clamp(26px, 7.8vw, 34px);
@@ -639,10 +635,6 @@ button,
 @media (max-width: 400px) {
   .zid-slot {
     min-height: 390px;
-  }
-
-  .zid-lanyard {
-    --zid-scale: 0.64;
   }
 
   .welcome h1 {

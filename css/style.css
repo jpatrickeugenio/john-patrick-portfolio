@@ -77,6 +77,25 @@ body.theme-transitioning button {
     box-shadow 0.32s ease;
 }
 
+:active-view-transition,
+:active-view-transition * {
+  transition: none !important;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -304,7 +323,6 @@ a:focus-visible {
   margin: 0 8px;
 }
 
-.theme-toggle,
 .menu-toggle {
   display: flex;
   align-items: center;
@@ -319,10 +337,53 @@ a:focus-visible {
 }
 
 .theme-toggle {
-  font-size: 11px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.theme-toggle:hover,
+.theme-toggle:hover {
+  border-color: var(--muted);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--muted);
+  outline-offset: 3px;
+}
+
+.theme-toggle__icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.theme-toggle.is-flipping .theme-toggle__icon {
+  animation: flip 0.42s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes flip {
+  from {
+    transform: rotate(-180deg) scale(0.6);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle.is-flipping .theme-toggle__icon {
+    animation: none;
+  }
+}
+
 .menu-toggle:hover {
   border-color: var(--muted);
   transform: translateY(-2px);
@@ -3878,6 +3939,19 @@ body.light .pe-split {
   opacity: 1;
   transform: scale(1.5);
 }
+
+@media (hover: none) {
+  .theme-toggle:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .theme-toggle:hover::before {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
 .theme-toggle:active {
   transform: scale(0.94);
   transition-duration: 0.12s;

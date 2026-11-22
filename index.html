@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="theme-color" content="#090909" id="themeColor" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="John Patrick Eugenio's developer portfolio and learning projects."
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="photo-optimized.jpg"
+      fetchpriority="high"
+    />
+
+    <title>John Patrick | Developer Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=DM+Sans:wght@400;500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/lanyard.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/idvideo.css" />
+    <link rel="stylesheet" href="css/Goals.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
+    <link rel="stylesheet" href="css/loader.css" />
+
+    <script src="js/lanyard.js" defer></script>
+    <script src="js/loader.js" defer></script>
+    <script src="js/java.js" defer></script>
+    <script src="js/menu.js" defer></script>
+    <script src="js/resume.js" defer></script>
+    <script src="js/skills.js" defer></script>
+    <script src="js/projects.js" defer></script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/name.js" defer></script>
+    <script src="js/gallery.js" defer></script>
+    <script src="js/idvideo.js" defer></script>
+    <script src="js/github.js" defer></script>
+    <script src="js/chatbot.js" defer></script>
+    <script src="js/contact.js" defer></script>
+    <script src="js/Goals.js" defer></script>
+  </head>
+    <script>
+      // Safety net: if the main script crashed, still show the page
+      setTimeout(() => {
+        const loader = document.getElementById("loader");
+        if (loader) loader.classList.add("gone", "loader-hidden");
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => el.classList.add("visible"));
+        document.body.classList.remove("site-loading");
+      }, 9000);
+    </script>
+  </body>
+</html>
+  <body class="site-loading">
+    <!-- Loading screen -->
+    <div
+      class="portfolio-intro"
+      id="loader"
+      role="status"
+      aria-label="Loading portfolio"
+    >
+      <div class="intro-ui">
+        <canvas class="intro-stars" id="introStars" aria-hidden="true"></canvas>
+        <span class="intro-corner intro-corner-1" aria-hidden="true"></span>
+        <span class="intro-corner intro-corner-2" aria-hidden="true"></span>
+        <span class="intro-corner intro-corner-3" aria-hidden="true"></span>
+        <span class="intro-corner intro-corner-4" aria-hidden="true"></span>
+        <div class="intro-center">
+          <div class="intro-line intro-eyebrow" id="introEyebrow"></div>
+          <div class="intro-line intro-title" id="introTitle"></div>
+          <div class="intro-track" aria-hidden="true">
+            <div class="intro-fill" id="introFill"></div>
+          </div>
+          <div class="intro-percent" id="introPercent">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <a href="#overview" class="brand">Portfolio<span>.</span></a>
+        <p class="side-label">WORKSPACE</p>
+
+        <nav class="navigation">
+          <a href="#gallery" class="nav-link"><span>↗</span> Gallery</a>
+          <a href="#overview" class="nav-link active"
+            ><span>⌂</span> Overview</a
+          >
+          <a href="#about" class="nav-link"><span>◉</span> About Me</a>
+          <a href="#skills" class="nav-link"><span>▤</span> Skills</a>
+          <a href="#goals" class="nav-link"><span>↗</span> Goals</a>
+          <a href="#projects" class="nav-link"><span>▣</span> Projects</a>
+          <a href="#contact" class="nav-link"><span>✉</span> Contact</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="status-dot"></div>
+          <div>
+            <strong>Learning in progress</strong>
+            <small>Building one project at a time.</small>
+          </div>
+        </div>
+      </aside>
+      <div class="sidebar-backdrop" aria-hidden="true"></div>
+
+      <main class="main">
+        <!-- Top navigation -->
+        <header class="topbar">
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="sidebar"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+          <span class="breadcrumb">Portfolio <span>/</span> Dashboard</span>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Turn the light on"
+            aria-pressed="false"
+          >
+            <span class="theme-toggle__icon" id="themeIcon" aria-hidden="true">☀</span>
+          </button>
+        </header>
+
+        <!-- Overview -->
+        <section class="section overview" id="overview">
+          <div class="welcome reveal">
+            <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+            <h1>
+              Hi, I'm
+              <span class="typing-name" id="typingName"
+                ><span id="nameText">John Patrick</span></span
+              >
+              <span class="cursor">|</span>
+            </h1>
+
+            <h2>
+              BSIS Student <span class="muted">·</span> Aspiring Software
+              Developer
+            </h2>
+            <p class="intro">
+              I am learning new things, exploring new ideas, and improving my skills every day
+              as I turn my ideas into real projects and work toward becoming a better developer.
+            </p>
+            <div class="ai-tools">
+              <span class="ai-tools-label">AI TOOLS IN MY WORKFLOW</span>
+              <div class="ai-tools-list">
+                <span class="ai-chip">
+                  <img src="https://cdn.simpleicons.org/openai/ffffff" alt="" />
+                  ChatGPT
+                </span>
+                <span class="ai-chip">
+                  <img src="https://cdn.simpleicons.org/claude/ffffff" alt="" />
+                  Claude
+                </span>
+                <span class="ai-chip">
+                  <img src="https://cdn.simpleicons.org/x/ffffff" alt="" />
+                  Grok
+                </span>
+                <span class="ai-chip">
+                  <img
+                    src="https://cdn.simpleicons.org/googlegemini/ffffff"
+                    alt=""
+                  />
+                  Gemini
+                </span>
+              </div>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://github.com/jpatrickeugenio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                data-tip="GitHub"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.61-.2.61-.43v-1.5c-2.5.54-3.03-1.06-3.03-1.06-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.91.06 1.39.94 1.39.94.8 1.38 2.1.98 2.61.75.08-.58.31-.98.57-1.2-2-.23-4.1-1-4.1-4.48 0-.99.35-1.8.94-2.44-.09-.23-.41-1.16.09-2.41 0 0 .77-.24 2.48.93A8.6 8.6 0 0 1 12 7.47c.78 0 1.57.1 2.31.31 1.72-1.17 2.49-.93 2.49-.93.5 1.25.18 2.18.09 2.41.58.64.93 1.45.93 2.44 0 3.49-2.1 4.25-4.11 4.47.32.28.61.82.61 1.66v2.74c0 .24.16.52.62.43A9 9 0 0 0 12 3z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/share/19pX5awCTE/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                data-tip="Facebook"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M13.5 20v-7h2.3l.4-2.7h-2.7V8.6c0-.8.3-1.3 1.4-1.3h1.4V4.9c-.2 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v1.9H8.4V13h2.3v7" />
+                </svg>
+              </a>
+              <a
+                href="https://www.instagram.com/muham_alihh?obrf=YnY5YTBiazVtaTV4"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                data-tip="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r=".6" />
+                </svg>
+              </a>
+              <a
+                href="mailto:jpatrickeugenio@gmail.com"
+                aria-label="Email"
+                data-tip="Email"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </a>
+            </div>
+            <div class="hero-actions">
+              <a class="button primary" href="#projects">Explore Projects ↗</a>
+              <a class="button secondary" href="#about">About Me</a>
+              <button
+                class="button secondary resume-button"
+                id="resumeButton"
+                type="button"
+                aria-disabled="true"
+                title="Resume coming soon"
+              >
+                <span aria-hidden="true">🔒</span> Resume
+              </button>
+            </div>
+          </div>
+
+          <!-- Draggable ZPPSU ID on a lanyard -->
+          <div class="zid-slot">
+            <div class="zid-lanyard" id="zid-lanyard">
+              <svg aria-hidden="true">
+                <defs>
+                  <linearGradient
+                    id="zid-gradL"
+                    gradientUnits="userSpaceOnUse"
+                    x1="0"
+                    y1="-20"
+                    x2="0"
+                    y2="300"
+                  >
+                    <stop offset="0" stop-color="#8a1230" />
+                    <stop offset=".25" stop-color="#7a0f2a" />
+                    <stop offset=".45" stop-color="#b3115a" />
+                    <stop offset=".72" stop-color="#c2206e" />
+                    <stop offset=".93" stop-color="#5b1463" />
+                    <stop offset="1" stop-color="#3d0f4a" />
+                  </linearGradient>
+                  <linearGradient
+                    id="zid-gradR"
+                    gradientUnits="userSpaceOnUse"
+                    x1="0"
+                    y1="-20"
+                    x2="0"
+                    y2="300"
+                  >
+                    <stop offset="0" stop-color="#5c0d26" />
+                    <stop offset=".5" stop-color="#6e1232" />
+                    <stop offset="1" stop-color="#3f0a24" />
+                  </linearGradient>
+                  <g
+                    id="zid-stripes"
+                    stroke="#f2c58f"
+                    stroke-width="3.2"
+                    stroke-linecap="butt"
+                  >
+                    <line x1="-9" y1="33" x2="9" y2="23" />
+                    <line x1="-9" y1="45" x2="9" y2="35" />
+                    <line x1="-9" y1="57" x2="9" y2="47" />
+                    <line x1="-9" y1="69" x2="9" y2="59" />
+                    <text
+                      x="0"
+                      y="81"
+                      text-anchor="middle"
+                      font-size="9"
+                      fill="#ff9db3"
+                      fill-opacity=".6"
+                      stroke="none"
+                    >
+                      ❦
+                    </text>
+                  </g>
+                  <g
+                    id="zid-chev"
+                    fill="none"
+                    stroke="#f2c58f"
+                    stroke-width="3.2"
+                    stroke-linejoin="miter"
+                  >
+                    <polyline points="-9,-46 0,-37 9,-46" />
+                    <polyline points="-9,-36 0,-27 9,-36" />
+                    <polyline points="-9,-26 0,-17 9,-26" />
+                  </g>
+                  <path id="zid-tL" fill="none" />
+                  <path id="zid-tR" fill="none" />
+                </defs>
+
+                <path
+                  id="zid-edgeL"
+                  class="zid-band"
+                  stroke="#140508"
+                  stroke-width="23"
+                />
+                <path
+                  id="zid-edgeR"
+                  class="zid-band"
+                  stroke="#140508"
+                  stroke-width="23"
+                />
+                <path
+                  id="zid-peachL"
+                  class="zid-band"
+                  stroke="#f0b878"
+                  stroke-width="21"
+                />
+                <path
+                  id="zid-peachR"
+                  class="zid-band"
+                  stroke="#f0b878"
+                  stroke-width="21"
+                />
+                <path
+                  id="zid-strapL"
+                  class="zid-band"
+                  stroke="url(#zid-gradL)"
+                  stroke-width="18"
+                />
+                <path
+                  id="zid-strapR"
+                  class="zid-band"
+                  stroke="url(#zid-gradR)"
+                  stroke-width="18"
+                />
+
+                <g id="zid-topL"><use href="#zid-stripes" /></g>
+                <g id="zid-topR"><use href="#zid-stripes" /></g>
+                <g id="zid-botL"><use href="#zid-chev" /></g>
+                <g id="zid-botR"><use href="#zid-chev" /></g>
+
+                <text class="zid-t-left" dy="3.5">
+                  <textPath
+                    href="#zid-tL"
+                    startOffset="52"
+                    textLength="175"
+                    lengthAdjust="spacingAndGlyphs"
+                  >
+                    Zamboanga Peninsula Polytechnic State University
+                  </textPath>
+                </text>
+                <text dy="4.5">
+                  <textPath href="#zid-tR" startOffset="52">
+                    <tspan class="zid-t-big">ZPPSU</tspan>
+                    <tspan class="zid-t-small" dx="8">THE UNIVERSITY</tspan>
+                  </textPath>
+                </text>
+              </svg>
+
+              <div
+                class="zid-id"
+                id="zid-id"
+                tabindex="0"
+                role="img"
+                aria-label="Draggable ID card for John Patrick Eugenio"
+              >
+                <div class="zid-clip"></div>
+                <div class="zid-face">
+                  <div class="zid-school">
+                    <img
+                      src="zppsu-logo.png"
+                      alt="ZPPSU logo"
+                      onerror="
+                        this.outerHTML = '<span class=zid-logo-fallback></span>'
+                      "
+                    />
+                    <div>
+                      <b>ZPPSU</b
+                      ><small
+                        >Zamboanga Peninsula<br />Polytechnic State
+                        University</small
+                      >
+                    </div>
+                  </div>
+                  <div class="zid-media">
+                    <img
+                      class="zid-photo"
+                      src="photo-optimized.jpg"
+                      alt="John Patrick Eugenio"
+                      draggable="false"
+                      loading="eager"
+                      fetchpriority="high"
+                      decoding="async"
+                      onerror="
+                        this.parentElement.style.display = 'none';
+                        this.parentElement.nextElementSibling.style.display =
+                          'grid';
+                      "
+                    />
+                    <video
+                      class="zid-photo zid-video"
+                      id="zidVideo"
+                      src="Gallery/id.vidieo.mp4.mp4"
+                      muted
+                      playsinline
+                      preload="auto"
+                      draggable="false"
+                    ></video>
+                  </div>
+                  <div class="zid-photo-ph">JP<span>.</span></div>
+                  <img
+                    class="zid-mark"
+                    src="zppsu-logo.png"
+                    alt=""
+                    draggable="false"
+                  />
+                  <p class="zid-name">John Patrick Eugenio</p>
+                  <p class="zid-role">Aspiring Software Developer</p>
+                  <div class="zid-meta">
+                    <span>Ur Future Developer</span>
+                    <div class="zid-barcode"></div>
+                  </div>
+                  <div class="zid-stripe"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- About -->
+        <section class="section content-section reveal" id="about">
+          <div class="section-heading">
+            <div>
+              <h2>About Me<span class="period">.</span></h2>
+            </div>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-copy panel">
+              <h3>Learning today. Building tomorrow.</h3>
+              <p>
+                I am a first-year Bachelor of Science in Information Systems
+                student at Zamboanga Peninsula Polytechnic State University.
+              </p>
+              <p>
+                I am currently learning C++ programming and web development.
+                Although I am a slow learner, I enjoy learning new things. It
+                makes me happy whenever i learn something new because i feel
+                like i have achieved something.<br />
+                I love what i am doing, and i hope that one day i will not
+                regret choosing this path. I will continue to practice,learn new
+                concepts and improve my skills through small projects.
+              </p>
+              <p>
+                My goal is to become a software developer because I want to
+                create websites and develop technology that can help people in
+                their everyday lives. I also want to build useful websites that
+                can make people's lives easier.<br />
+                One of my biggest dreams is to become successful so I can repay
+                my mother's sacrifices and help my siblings. I want to achieve
+                my goals so badly that I don't have excuses to stop dreaming
+                about them. InshaAllah, I will achieve them one day. I just need
+                to stay consistent, keep learning, and never let my dreams die.
+              </p>
+            </div>
+
+            <div class="details panel">
+              <h3>Personal Details</h3>
+              <div class="detail-row">
+                <span>Name</span>
+                <strong>John Patrick Eugenio</strong>
+              </div>
+              <div class="detail-row">
+                <span>Course</span>
+                <strong>Bachelor Of Science Infosys</strong>
+              </div>
+              <div class="detail-row">
+                <span>University</span>
+                <strong>ZPPSU</strong>
+              </div>
+              <div class="detail-row">
+                <span>Current language</span>
+                <strong>C++</strong>
+              </div>
+              <div class="detail-row">
+                <span>Career goal</span>
+                <strong>Software Developer</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- GitHub Contributions Card -->
+        <section class="ghx-wrap reveal" aria-label="GitHub activity">
+          <div class="ghx-card" id="github">
+            <header class="ghx-head">
+              <div class="ghx-user">
+                <img
+                  class="ghx-avatar"
+                  src="https://github.com/jpatrickeugenio.png"
+                  alt="GitHub profile picture"
+                  loading="lazy"
+                />
+                <div>
+                  <h3>GitHub Activity</h3>
+                  <a
+                    href="https://github.com/jpatrickeugenio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >@jpatrickeugenio</a
+                  >
+                </div>
+              </div>
+              <a
+                class="ghx-btn"
+                href="https://github.com/jpatrickeugenio"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Profile <span aria-hidden="true">↗</span></a
+              >
+            </header>
+
+            <div
+              class="ghx-scroll"
+              aria-label="GitHub contribution calendar for jpatrickeugenio"
+            >
+              <div class="ghx-grid" id="ghx-grid"></div>
+            </div>
+
+            <footer class="ghx-foot">
+              <p>Every contribution is another step in my developer journey.</p>
+              <div class="ghx-legend" aria-hidden="true">
+                Less <i style="background: var(--l0)"></i
+                ><i style="background: var(--l1)"></i>
+                <i style="background: var(--l2)"></i
+                ><i style="background: var(--l3)"></i>
+                <i style="background: var(--l4)"></i> More
+              </div>
+            </footer>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section content-section reveal" id="skills">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">WHAT I'M LEARNING</p>
+              <h2>Skills & Learning<span class="period">.</span></h2>
+            </div>
+            <span class="section-number">02 / SKILLS</span>
+          </div>
+
+          <div class="mq-marquee" aria-label="My skills">
+            <div class="mq-track">
+              <div class="mq-set">
+                <article class="mq-card panel" style="--brand: #3d8bd8; --p: 45%">
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <path d="M16 2l12 7v14l-12 7L4 23V9z" fill="#00599C" />
+                      <text x="16" y="20.5" text-anchor="middle" font-size="11" font-weight="800" font-family="Arial, sans-serif" fill="#fff">C++</text>
+                    </svg>
+                    <div>
+                      <h3>C++ Programming</h3>
+                      <span class="mq-status">LEARNING</span>
+                    </div>
+                  </div>
+                  <p>Variables, loops, arrays, and functions.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>45%</b>
+                  </div>
+                </article>
+
+                <article class="mq-card panel" style="--brand: #f06a3c; --p: 25%">
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <path d="M5 3h22l-2 22-9 4-9-4z" fill="#E34F26" />
+                      <path d="M16 5v22l7.2-3.2L24.8 5z" fill="#EF652A" />
+                      <text x="16" y="21" text-anchor="middle" font-size="14" font-weight="800" font-family="Arial, sans-serif" fill="#fff">5</text>
+                    </svg>
+                    <div>
+                      <h3>HTML</h3>
+                      <span class="mq-status">LEARNING</span>
+                    </div>
+                  </div>
+                  <p>Structuring web pages and content.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>25%</b>
+                  </div>
+                </article>
+
+                <article class="mq-card panel" style="--brand: #2d9be0; --p: 20%">
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <path d="M5 3h22l-2 22-9 4-9-4z" fill="#1572B6" />
+                      <path d="M16 5v22l7.2-3.2L24.8 5z" fill="#33A9DC" />
+                      <text x="16" y="21" text-anchor="middle" font-size="14" font-weight="800" font-family="Arial, sans-serif" fill="#fff">3</text>
+                    </svg>
+                    <div>
+                      <h3>CSS</h3>
+                      <span class="mq-status">LEARNING</span>
+                    </div>
+                  </div>
+                  <p>Layouts, colors, and animation.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>20%</b>
+                  </div>
+                </article>
+
+                <article class="mq-card panel" style="--brand: #f7df1e; --p: 10%">
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <rect x="3" y="3" width="26" height="26" rx="3" fill="#F7DF1E" />
+                      <text x="27" y="26" text-anchor="end" font-size="13" font-weight="800" font-family="Arial, sans-serif" fill="#000">JS</text>
+                    </svg>
+                    <div>
+                      <h3>JavaScript</h3>
+                      <span class="mq-status">EXPLORING</span>
+                    </div>
+                  </div>
+                  <p>Making websites interactive.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>10%</b>
+                  </div>
+                </article>
+
+                <article class="mq-card panel" style="--brand: #f05032; --p: 10%">
+                  <div class="mq-head">
+                    <svg class="mq-logo" viewBox="0 0 32 32" aria-hidden="true">
+                      <rect x="6.5" y="6.5" width="19" height="19" rx="3" transform="rotate(45 16 16)" fill="#F05032" />
+                      <path d="M16 8v16M11 13l5 5 5-5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      <circle cx="16" cy="8" r="2" fill="#fff" />
+                      <circle cx="11" cy="13" r="2" fill="#fff" />
+                      <circle cx="16" cy="24" r="2" fill="#fff" />
+                    </svg>
+                    <div>
+                      <h3>Git &amp; GitHub</h3>
+                      <span class="mq-status">EXPLORING</span>
+                    </div>
+                  </div>
+                  <p>Saving versions and sharing projects.</p>
+                  <div class="mq-meter">
+                    <div class="mq-seg"><span></span></div>
+                    <b>10%</b>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <p class="note">
+            Progress bars are editable estimates, not formal skill assessments.
+          </p>
+        </section>
+
+        <!-- Goals & Roadmap -->
+        <section class="section content-section reveal" id="goals">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">MY DIRECTION</p>
+              <h2>Goals &amp; Roadmap<span class="period">.</span></h2>
+              <p class="section-description">
+                Dream it. Plan it. Build it one step at a time.
+              </p>
+            </div>
+            <span class="section-number">03 / GOALS</span>
+          </div>
+
+          <div class="gr-list" id="grList">
+            <article class="gr-item">
+              <div class="gr-body">
+                <span class="gr-label">Current Focus</span>
+                <h3 class="gr-title">Master the Fundamentals</h3>
+                <p class="gr-desc">Build strong C++ logic, algorithmic problem-solving skills, and responsive web applications. Consistently practicing core programming techniques helps turn complex code ideas into efficient solutions.</p>
+              </div>
+            </article>
+            <article class="gr-item">
+              <div class="gr-body">
+                <span class="gr-label">Next Step</span>
+                <h3 class="gr-title">Build Real Projects</h3>
+                <p class="gr-desc">Bridge frontend and backend concepts to create functional web tools and application platforms. Turning ideas into real-world code provides hands-on experience with real user workflows.</p>
+              </div>
+            </article>
+            <article class="gr-item">
+              <div class="gr-body">
+                <span class="gr-label">Grow My Skills</span>
+                <h3 class="gr-title">Learn Full-Stack Development</h3>
+                <p class="gr-desc">Master modern web APIs, server-side frameworks, databases, and deployment workflows. Developing complete end-to-end applications ensures both the server logic and user interface work seamlessly together.</p>
+              </div>
+            </article>
+            <article class="gr-item">
+              <div class="gr-body">
+                <span class="gr-label">Long-Term Goal</span>
+                <h3 class="gr-title">Graduate &amp; Start My Career</h3>
+                <p class="gr-desc">Complete my BSIS degree and prepare for a career as a Software Developer or Data Analyst. Achieving this milestone creates a strong foundation for professional growth and continuous learning.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section content-section reveal" id="projects">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">MY PRACTICE WORK</p>
+              <h2>C++ Projects<span class="period">.</span></h2>
+            </div>
+            <span class="section-number">04 / PROJECTS</span>
+          </div>
+          <p class="section-description">
+            Small projects that help me practice programming logic and build
+            confidence.
+          </p>
+
+          <div class="pe-split">
+            <div
+              class="pe-list"
+              id="peList"
+              role="tablist"
+              aria-label="C++ projects"
+            ></div>
+            <div id="peDetail" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" class="section content-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">MOMENTS</p>
+              <h2>My Gallery<span class="period">.</span></h2>
+            </div>
+            <div class="gal-nav">
+              <button
+                class="gal-btn"
+                id="galPrev"
+                type="button"
+                aria-label="Scroll gallery left"
+              >
+                ←
+              </button>
+              <button
+                class="gal-btn"
+                id="galNext"
+                type="button"
+                aria-label="Scroll gallery right"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="gal-strip"
+            id="galStrip"
+            tabindex="0"
+            role="region"
+            aria-label="Photo gallery. Scroll sideways to see more."
+          >
+            <figure class="gal-item" data-n="01" style="--h: 330">
+              <img
+                src="gallery/photo1.jpg"
+                alt="My coding setup"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="02" style="--h: 210">
+              <img
+                src="gallery/photo2.jpg"
+                alt="School life"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="03" style="--h: 160">
+              <img
+                src="gallery/photo3.jpg"
+                alt="First C++ program"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="04" style="--h: 30">
+              <img
+                src="gallery/photo4.jpg"
+                alt="With my classmates"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="05" style="--h: 270">
+              <img
+                src="gallery/photo5.jpg"
+                alt="Building this portfolio"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="06" style="--h: 90">
+              <img
+                src="gallery/photo6.jpg"
+                alt="Late night coding"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="07" style="--h: 190">
+              <img
+                src="gallery/photo7.jpg"
+                alt="Campus"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+            <figure class="gal-item" data-n="08" style="--h: 0">
+              <img
+                src="gallery/photo8.jpg"
+                alt="Project demo day"
+                draggable="false"
+                loading="lazy"
+                onerror="this.remove()"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section content-section reveal" id="contact">
+          <div class="contact-panel panel">
+            <h2>
+              Every expert was once a beginner<span class="period">.</span>
+            </h2>
+            <p>
+              I'm learning, building, and working toward becoming a software
+              developer. Send me a message below!
+            </p>
+
+            <form id="contactForm" class="contact-form">
+              <label for="contactName">Your Name</label>
+              <input
+                type="text"
+                id="contactName"
+                name="name"
+                placeholder="Enter your name"
+                maxlength="100"
+                required
+              />
+
+              <label for="contactEmail">Your Email</label>
+              <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                placeholder="Enter your email"
+                maxlength="254"
+                required
+              />
+
+              <label for="contactMessage">Your Message</label>
+              <textarea
+                id="contactMessage"
+                name="message"
+                placeholder="Write your message..."
+                maxlength="5000"
+                rows="5"
+                required
+              ></textarea>
+
+              <button class="button primary" type="submit" id="sendButton">
+                Send message
+              </button>
+
+              <p id="formStatus" role="status" aria-live="polite"></p>
+            </form>
+
+            <a
+              class="contact-github"
+              href="https://github.com/jpatrickeugenio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <span>© <span id="year"></span> John Patrick Eugenio</span>
+          <span>Designed with purpose. Built while learning.</span>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Project details modal -->
+    <div class="modal" id="projectModal" aria-hidden="true">
+      <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button
+          class="modal-close"
+          id="modalClose"
+          aria-label="Close project details"
+        >
+          ×
+        </button>
+        <p class="eyebrow">PROJECT DETAILS</p>
+        <h2 id="modalTitle">Project name</h2>
+        <p id="modalDescription"></p>
+        <div class="tags" id="modalTags"></div>
+      </div>
+    </div>
+
+    <div class="chatbot" id="chatbot">
+      <section class="chatbot-panel" id="chatbotPanel" aria-hidden="true">
+        <div class="chatbot-header">
+          <div class="chatbot-profile">
+            <span class="chatbot-avatar">
+              <span class="bot-mark" aria-hidden="true"><i></i><i></i></span>
+              <i class="chatbot-online" aria-hidden="true"></i>
+            </span>
+            <div>
+              <strong>Portfolio Guide</strong>
+              <span>About John and his work</span>
+            </div>
+          </div>
+          <button
+            class="chatbot-close"
+            id="chatbotClose"
+            type="button"
+            aria-label="Close chat"
+          >
+            ×
+          </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages" aria-live="polite">
+          <p class="chatbot-message bot">
+            Hi! I’m the portfolio guide. John Patrick Eugenio is an Information
+            Systems student learning programming and web development. This
+            portfolio highlights his skills, projects, and goals. Ask me about
+            any section.
+          </p>
+        </div>
+        <div class="chatbot-actions" aria-label="Quick questions">
+          <button type="button" data-chat-prompt="Tell me about the projects">
+            Projects
+          </button>
+          <button type="button" data-chat-prompt="What skills are you learning?">
+            Skills
+          </button>
+          <button type="button" data-chat-prompt="How can I contact you?">
+            Contact
+          </button>
+        </div>
+        <form class="chatbot-form" id="chatbotForm">
+          <input
+            id="chatbotInput"
+            type="text"
+            placeholder="Type a message..."
+            aria-label="Message"
+            autocomplete="off"
+          />
+          <button type="submit" aria-label="Send message">↗</button>
+        </form>
+      </section>
+      <button
+        class="chatbot-toggle"
+        id="chatbotToggle"
+        type="button"
+        aria-label="Open chat"
+        aria-expanded="false"
+        aria-controls="chatbotPanel"
+      >
+        <span class="bot-mark bot-mark-large" aria-hidden="true">
+          <i></i><i></i>
+        </span>
+      </button>
+    </div>
+
+  </body>
+</html>

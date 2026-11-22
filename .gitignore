@@ -1,0 +1,16 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+
+cleanup-css.ps1
+css/style.backup-*.css
+
+my-backend/node_modules/

@@ -1,0 +1,235 @@
+.portfolio-intro {
+  --intro-bg: #000;
+  --intro-fg: #fff;
+  --intro-dim: #8a8a8a;
+  --intro-line: rgba(255, 255, 255, 0.18);
+  --intro-ease: cubic-bezier(0.76, 0, 0.24, 1);
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+  background: var(--intro-bg);
+  color: var(--intro-fg);
+  font-family: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+.portfolio-intro.closing {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.02);
+}
+
+.portfolio-intro .intro-ui {
+  position: absolute;
+  inset: 0;
+  transition:
+    opacity 0.36s ease,
+    transform 0.36s ease;
+}
+
+.portfolio-intro .intro-stars {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-intro .intro-corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 0 solid var(--intro-fg);
+  opacity: 0.85;
+}
+
+.portfolio-intro .intro-corner-1 {
+  top: 22px;
+  left: 22px;
+  border-width: 2px 0 0 2px;
+}
+
+.portfolio-intro .intro-corner-2 {
+  top: 22px;
+  right: 22px;
+  border-width: 2px 2px 0 0;
+}
+
+.portfolio-intro .intro-corner-3 {
+  bottom: 22px;
+  left: 22px;
+  border-width: 0 0 2px 2px;
+}
+
+.portfolio-intro .intro-corner-4 {
+  right: 22px;
+  bottom: 22px;
+  border-width: 0 2px 2px 0;
+}
+
+.portfolio-intro .intro-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  text-align: center;
+}
+
+.portfolio-intro .intro-line {
+  min-height: 1em;
+  white-space: pre;
+}
+
+.portfolio-intro .intro-eyebrow {
+  margin-bottom: 12px;
+  color: #9a9a9a;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.portfolio-intro .intro-title {
+  font-size: clamp(20px, 4vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.portfolio-intro .intro-char {
+  display: inline-block;
+  white-space: pre;
+  animation: intro-spawn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.portfolio-intro .intro-title.intro-wave .intro-char {
+  animation: intro-wave 0.35s ease-in-out calc(var(--intro-index) * 12ms) both;
+}
+
+.portfolio-intro .intro-cursor {
+  display: inline-block;
+  width: 0.09em;
+  min-width: 3px;
+  height: 0.9em;
+  margin-left: 0.06em;
+  background: var(--intro-fg);
+  vertical-align: -0.08em;
+  animation: intro-blink 1s steps(1) infinite;
+}
+
+.portfolio-intro .intro-cursor.intro-typing {
+  animation: none;
+}
+
+.portfolio-intro .intro-track {
+  position: relative;
+  width: min(160px, 42vw);
+  height: 2px;
+  margin-top: 30px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--intro-line);
+}
+
+.portfolio-intro .intro-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--intro-fg);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.portfolio-intro .intro-percent {
+  margin-top: 12px;
+  color: var(--intro-dim);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+}
+
+.portfolio-intro.gone {
+  display: none;
+}
+
+@keyframes intro-spawn {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translate(var(--intro-x), var(--intro-y)) rotate(var(--intro-rotation)) scale(0.3);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+@keyframes intro-wave {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    transform: none;
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.9);
+    transform: translateY(-0.14em);
+  }
+}
+
+@keyframes intro-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .portfolio-intro .intro-corner {
+    width: 18px;
+    height: 18px;
+  }
+
+  .portfolio-intro .intro-corner-1,
+  .portfolio-intro .intro-corner-2 {
+    top: 16px;
+  }
+
+  .portfolio-intro .intro-corner-3,
+  .portfolio-intro .intro-corner-4 {
+    bottom: 16px;
+  }
+
+  .portfolio-intro .intro-corner-1,
+  .portfolio-intro .intro-corner-3 {
+    left: 16px;
+  }
+
+  .portfolio-intro .intro-corner-2,
+  .portfolio-intro .intro-corner-4 {
+    right: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-intro .intro-char,
+  .portfolio-intro .intro-cursor {
+    animation: none;
+  }
+
+  .portfolio-intro,
+  .portfolio-intro .intro-ui {
+    transition-duration: 0.01s;
+  }
+}
